@@ -25,6 +25,6 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/coba', function () {
-    return view('coba');
+Route::get('/reservasi', function () {
+    return view('reservasi');
 });
