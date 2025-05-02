@@ -28,3 +28,7 @@ Route::get('/home', function () {
 Route::get('/coba', function () {
     return view('coba');
 });
+
+Route::get('/berita', function () {
+    return view('berita');
+});
