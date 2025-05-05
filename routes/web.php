@@ -28,3 +28,7 @@ Route::get('/home', function () {
 Route::get('/reservasi', function () {
     return view('reservasi');
 });
+
+Route::get('/profil', function () {
+    return view('profil');
+});
