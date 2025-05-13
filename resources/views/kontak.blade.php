@@ -113,7 +113,7 @@
     <!-- end navbar -->
 
     <!-- teks menu -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/img-8.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
+    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/img-8.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
     <div class="w-full h-full text-white items-center flex flex-col justify-center gap-10">
         <div class="text-center leading-tight">
             <!-- Ganti text-xl menjadi text-4xl atau lebih -->
