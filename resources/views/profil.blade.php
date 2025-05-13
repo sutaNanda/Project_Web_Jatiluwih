@@ -47,7 +47,7 @@
     <!-- end navbar -->
 
     <!-- section home -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/img-9.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
+    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/img-13.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
         <div class="w-full h-full text-white items-center flex flex-col justify-center gap-4">
             <div class="text-6xl text-center font-bold leading-tight capitalize">
                 <h2>tentang desa wisata jatiluwih</h2>

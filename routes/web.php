@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 });
 
 // Route tambahan dari remote
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 
