@@ -32,3 +32,7 @@ Route::get('/reservasi', function () {
 Route::get('/profil', function () {
     return view('profil');
 });
+
+Route::get('/kontak', function () {
+    return view('kontak');
+});
