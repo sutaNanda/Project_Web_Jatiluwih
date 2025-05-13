@@ -42,7 +42,6 @@ Route::get('/kontak', function () {
     return view('kontak');
 });
 
-// Kontak
-Route::get('/kontak', function () {
-    return view('kontak');
+Route::get('/berita', function () {
+    return view('berita');
 });
