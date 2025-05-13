@@ -465,7 +465,7 @@
                             <a href="" class="hover:underline">Profil Desa</a>
                         </li>
                         <li class="mb-4">
-                            <a href="" class="hover:underline">Kontak Kami</a>
+                            <a href="kontak" class="hover:underline">Kontak Kami</a>
                         </li>
                         <li>
                             <a href="/reservasi" class="hover:underline">Pemesanan</a>
