@@ -2,10 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DestinasiController;
+use App\Http\Controllers\HomeController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/destinasi', [DestinasiController::class, 'index']);
+
+Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
+
+Route::post('/destinasi', [DestinasiController::class, 'store'])->name('destinasi.store');
+
+
 
 //kontak
 Route::get('/kontak', [ContactController::class, 'showForm'])->name('kontak.form');
@@ -13,9 +21,9 @@ Route::post('/kontak', [ContactController::class, 'sendMessage'])->name('kontak.
 
 
 // Route login/logout
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Dummy dashboard (sementara)
 Route::get('/dashboard', function () {
@@ -25,13 +33,17 @@ Route::get('/dashboard', function () {
     return "Selamat datang di Dashboard!";
 });
 
-// Route tambahan dari remote
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::get('/reservasi', function () {
     return view('reservasi');
+});
+
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::get('/detail-destinasi', function () {
+    return view('detail-destinasi');
 });
 
 Route::get('/profil', function () {
@@ -45,3 +57,7 @@ Route::get('/kontak', function () {
 Route::get('/berita', function () {
     return view('berita');
 });
+
+// Route::get('/destinasi', function () {
+//     return view('destinasi');
+// });
