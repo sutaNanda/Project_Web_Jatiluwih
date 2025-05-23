@@ -10,8 +10,14 @@ class DestinasiController extends Controller
 {
     public function index()
     {
+        $data = Destinasi::all();
         $destinasi = Destinasi::where('status', 'aktif')->get();
         return view('destinasi', compact('destinasi'));
+    }
+    public function index2()
+    {
+        $destinasi = Destinasi::where('status', 'aktif')->get();
+        return view('admin.data-wisata', compact('destinasi'));
     }
 
     public function show($id)
