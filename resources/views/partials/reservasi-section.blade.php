@@ -1,76 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservasi - Desa Wisata Jatiluwih</title>
-    <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-</head>
-<body>
-    <!-- navbar -->
-    <x-navbar></x-navbar>
-    <!-- <nav class=" fixed w-full z-20 top-0 start-0 bg-transparent transition-all duration-300" id="navbar">
-        <div class="max-w-screen-xl flex flex-wrap mx-auto p-4 justify-center items-center">
-            <a href="/home" class="flex items-center space-x-3 rtl:space-x-reverse p-3 mr-9">
-                <img src="{{ asset('img/logo.png') }}" alt="" class="w-12 h-12">
-            </a>
-            
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 font-normal">
-                    <li>
-                        <a href="/home" class="md:hover:text-blue-700 block py-2 px-3 text-white rounded-sm md:bg-transparent md:p-0 " aria-current="page">Beranda</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Destinasi</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Berita</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Profil Desa</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Kontak Kami</a>
-                    </li>
-                    <li>
-                        <a href="/reservasi" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Pemesanan</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Bahasa</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-    <!-- end navbar -->
-
-    <!-- section home -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/img-13.jpg') }}'); background-size: cover; background-position: top; background-repeat: no-repeat">
-        <div class="w-full h-full text-white items-center flex flex-col justify-center gap-4">
-            <div class="text-6xl text-center font-bold leading-tight capitalize">
-                <h2>berbagi paket wisata menarik <br> yang bisa dinikmati</h2>
-            </div>
-            <div>
-                <p>"We Embrace #TheBeutyofAncientJatiluwih"</p> 
-            </div>
-
-        </div>
-    </section>
-    <!-- end section home -->
-
-    <!-- section paket -->
-    <section>
+<section>
         <div class="w-full h-full p-2 flex justify-center flex-col mt-20">
             <div class="text-5xl text-center font-bold leading-tight capitalize">
                 <h2>Nikmati beragam paket <br> wisata di desa Jatiluwih</h2>
             </div>
 
-            <div class="w-full h-full flex justify-evenly mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 p-25">
                 
-                <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+                <div class="bg-white border-2 border-green-800 rounded-lg shadow-sm">
                     <a href="#" class="w-71 h-72 flex mx-auto">
                         <img class="p-8 rounded-t-lg" src="{{ asset('img/img-6.jpg') }}" alt="paket image" />
                     </a>
@@ -180,73 +116,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
-                    <a href="#" class="w-71 h-72 flex mx-auto">
-                        <img class="p-8 rounded-t-lg" src="{{ asset('img/img-11.jpg') }}" alt="paket image" />
-                    </a>
-                    <div class="px-5 pb-5">
-                        <a href="#">
-                            <h5 class="text-xl font-semibold tracking-tight text-gray-900">
-                                Gong Restaurant Jatiluwih <br> Culinary Package
-                            </h5>
-                        </a>
-                        <p>Harga: IDR 200.000 / orang</p>
-                        <div class="">
-                            <p>Fasilitas</p>
-                            <ul class="list-disc list-inside text-sm">
-                                <li>Welcome drink</li>
-                                <li>Lunch pilihan (nasi campur Bali, <br> ayam betutu, sate lilit)</li>
-                                <li>View sawah terasering</li>
-                                <li>Kopi atau teh Bali</li>
-                                <li>Tur singkat dapur</li>
-                                <li>Souvenir sambal/jamu</li>
-                            </ul>
-                        </div>
-                        <div class="flex items-center mt-2.5 mb-4">
-                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                </svg>
-                            </div>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">Populer</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">12 jam</span>
-                        </div>
-                        <div class="flex flex-col w-1/2 mx-auto mb-4">
-                            <a href="#" class="text-white bg-green-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4">Lihat Paket</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-    <!-- end section paket -->
-
-    <!-- footer -->
-    <x-footer></x-footer>
-    <!-- end footer -->
-
-    <script>
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-green-800', 'backdrop-blur-xs');
-                navbar.classList.add('bg-opacity-50'); 
-                navbar.classList.add('border-b-1', 'border-gray-600');
-                navbar.classList.remove('bg-transparent');
-                
-            } else if (window.scrollY === 0) {
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('backdrop-blur-xs');
-                navbar.classList.remove('bg-opacity-30');
-                navbar.classList.remove('border-1');
-            }else {
-                navbar.classList.add('border-0');
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('backdrop-blur-xs', 'bg-opacity-50', 'border-b-1');
-            }
-        });
-    </script>
-    
-</body>
-</html>
