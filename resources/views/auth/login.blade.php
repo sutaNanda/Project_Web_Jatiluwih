@@ -24,7 +24,7 @@
         }
         .login-image {
             flex: 1;
-            background-image: url('https://preview.redd.it/new-shorekeeper-meme-dropped-v0-b0f0j0e84tud1.png?auto=webp&s=2ccb748b6c42e71d1e68131c064bcdd2aa3b299a'); /* Gambar random sementara */
+            background-image: url('https://www.stabilitas.id/wp-content/uploads/WhatsApp-Image-2022-05-02-at-9.11.09-PM-1.jpeg'); /* Gambar random sementara */
             background-size: cover;
             background-position: center;
         }
