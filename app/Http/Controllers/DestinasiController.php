@@ -12,7 +12,12 @@ class DestinasiController extends Controller
     {
         $data = Destinasi::all();
         $destinasi = Destinasi::where('status', 'aktif')->get();
-        return view('destinasi', compact('destinasi'));
+        return view('destinasi', compact('destinasi'),[
+            'title' => 'Destinasi',
+            'bg' => asset('img/gallery-10.jpg'),
+            'deskripsi' => 'berbagi paket wisata menarik yang bisa dinikmati'
+            
+        ]);
     }
     public function index2()
     {
