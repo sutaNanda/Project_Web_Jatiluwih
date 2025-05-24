@@ -9,9 +9,9 @@
             <input type="text" class="form-control" id="searchInput" placeholder="Cari wisata...">
         </div>
 
-        <div class="btn bg-success btn-sm">
-            <a href="/create" class="text-white style-non">Tambah Destinasi</a>
-        </div>
+        <a href="/create" class="btn btn-success btn-sm text-white" style="text-decoration: none;">
+            Tambah Destinasi
+        </a>
 
         <table class="table table-striped table-bordered">
             <thead>
@@ -33,8 +33,7 @@
                         <td><img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" style="width: 100px"></td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="#" class="btn btn-info btn-sm">Detail</a>
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="#" class="btn btn-info btn-sm">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
                     </tr>

@@ -31,10 +31,10 @@ class AdminController extends Controller
         return view('admin.laporan');
     }
 
-    public function profilDesa()
-    {
-        return view('admin.profil-desa');
-    }
+    // public function profilDesa()
+    // {
+    //     return view('admin.profil-desa');
+    // }
 
     public function kelolaAdmin()
     {
