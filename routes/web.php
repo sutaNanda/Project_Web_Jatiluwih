@@ -4,27 +4,33 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DestinasiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaketController;
+
+
 
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/destinasi', [DestinasiController::class, 'index']);
+Route::get('/destinasi', [DestinasiController::class, 'index',]);
 
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
 
 Route::post('/destinasi', [DestinasiController::class, 'store'])->name('destinasi.store');
+
+Route::get('/berita', [BeritaController::class, 'index']);
+
+Route::get('/reservasi', [PaketController::class, 'index']);
 
 
 
 //kontak
 Route::get('/kontak', [ContactController::class, 'showForm'])->name('kontak.form');
 Route::post('/kontak', [ContactController::class, 'sendMessage'])->name('kontak.send');
-
-
 // routes wira
 
 
 // admin
-use App\Http\Controllers\DashboardController;
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::prefix('admin')->group(function () {
@@ -51,8 +57,25 @@ Route::get('/dashboard', function () {
 });
 // end routes wira
 
-Route::get('/reservasi', function () {
-    return view('reservasi');
+
+// routes global
+// Route::get('/reservasi', function () {
+//     return view('reservasi',[
+//         'title' => 'Reservasi',
+//         'bg' => asset('img/img-13.jpg'),
+//         'deskripsi' => 'berbagi paket wisata menarik yang bisa dinikmati'
+//     ]);
+// });
+
+Route::get('/form', function () {
+    return view('form-reservasi',[
+        'title' => 'form reservasi',
+        'bg' => asset('img/bg-1.jpg'),
+    ]);
+});
+
+Route::get('/create', function () {
+    return view('admin.create');
 });
 
 Route::get('/detail-destinasi', function () {
@@ -60,23 +83,17 @@ Route::get('/detail-destinasi', function () {
 });
 
 Route::get('/profil', function () {
-    return view('profil');
+    return view('profil',[
+        'title' => 'Profil',
+        'bg' => asset('img/img-13.jpg'),
+        'deskripsi' => 'tentang desa wisata jatiluwih'
+    ]);
 });
 
 Route::get('/kontak', function () {
-    return view('kontak');
+    return view('kontak',[
+        'title' => 'Kontak',
+        'bg' => asset('img/bg-1.jpg'),
+        'deskripsi' => 'Tanya Tentang sesuatu? Hubungi Kami Segera!'
+    ]);
 });
-
-Route::get('/berita', function () {
-    return view('berita');
-});
-
-// cpmponents
-Route::get('/create', function () {
-    return view('components.create');
-});
-
-
-// Route::get('/destinasi', function () {
-//     return view('destinasi');
-// });

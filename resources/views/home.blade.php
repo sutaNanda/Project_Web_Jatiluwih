@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Desa Wisata Jatiluwih</title>
+    <title>{{ $title }} - Desa Wisata Jatiluwih</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
 
@@ -73,7 +73,7 @@
     <!-- end navbar -->
 
     <!-- section home -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/bg-1.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
+    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{$bg}}'); background-size: cover; background-position: center; background-repeat: no-repeat">
         <div class="w-full h-full text-white items-center flex flex-col justify-center gap-4">
             <div class="text-6xl text-center font-bold leading-tight">
                 <h2>Kami Merangkul<br>Keindahan Kuno Jatiluwih</h2>

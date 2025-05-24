@@ -1,103 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak Kami - Desa Wisata Jatiluwih</title>
-    <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
+@extends('layouts.main')
 
-    <!-- start font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <!-- end font -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-    <style>
-        .itim-regular {
-            font-family: 'Itim', cursive;
-            /* font-size: 14px; Ukuran font */
-        }
-    </style>
-</head>
-
-
-<script>
-  window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.remove('bg-transparent');
-      navbar.classList.add('bg-green-800', 'shadow-md'); // Ganti bg-white sesuai keinginan
-    } else {
-      navbar.classList.add('bg-transparent');
-      navbar.classList.remove('bg-white', 'shadow-md');
-    }
-  });
-</script>
-
-
-<!-- <style>
-    .swiper-button-prev:after,
-    .swiper-rtl .swiper-button-next:after {
-        content: '' !important;
-    }
-
-    .swiper-button-next:after,
-    .swiper-rtl .swiper-button-prev:after {
-        content: '' !important;
-    }
-
-    .swiper-button-next svg,
-    .swiper-button-prev svg {
-        width: 24px !important;
-        height: 24px !important;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        position: relative !important;
-        margin-top: 32px;
-    }
-
-    .swiper-slide.swiper-slide-active {
-        --tw-border-opacity: 1 !important;
-        border-color: rgb(79 70 229 / var(--tw-border-opacity)) !important;
-    }
-
-    .swiper-slide.swiper-slide-active>.swiper-slide-active\:text-indigo-600 {
-        --tw-text-opacity: 1;
-        color: rgb(79 70 229 / var(--tw-text-opacity));
-    }
-
-    .swiper-slide.swiper-slide-active>.flex .grid .swiper-slide-active\:text-indigo-600 {
-        --tw-text-opacity: 1;
-        color: rgb(79 70 229 / var(--tw-text-opacity));
-    }
-</style> -->
-
-
-<body>
-    <!-- navbar -->
-    <x-navbar></x-navbar>
-    <!-- end navbar -->
-
-    <!-- teks menu -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{ asset('img/bg-1.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
-        <div class="w-full h-full text-white items-center flex flex-col justify-center gap-10">
-            <div class="text-center leading-tight">
-                <!-- Ganti text-xl menjadi text-4xl atau lebih -->
-                <h2 class="text-5xl itim-regular font-bold">Tanya Tentang Destinasi dan Pemesanan?<br>Hubungi Kami Segera!</h2>
-            </div>
-            <div>
-                <!-- Ganti text-4xl menjadi text-6xl atau lebih -->
-                <p class="itim-regular text-2xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
-            </div>
-        </div>
-    </section> 
-    <!-- end teks menu -->
-
-
+@section('content2')
     <section class="bg-white py-16">
         <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         <!-- Kiri: Judul -->
@@ -151,9 +54,4 @@
         </div>
     </section>
 
-    <!-- footer -->
-    <x-footer></x-footer>
-    <!-- end footer -->
-
-</body>
-</html>
+@endsection

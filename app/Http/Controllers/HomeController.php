@@ -10,7 +10,10 @@ class HomeController extends Controller
     {
         $destinasi = Destinasi::where('status', 'aktif')->take(3)->get();
 
-        return view('home', compact('destinasi'));
+        return view('home', compact('destinasi'), [
+            'title' => 'Home',
+            'bg' => asset('img/bg-1.jpg'),
+        ]);
     }
 }
 
