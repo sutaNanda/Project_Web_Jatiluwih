@@ -86,12 +86,12 @@
                     Laporan
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/profil-desa') ? 'active' : '' }}" href="{{ url('admin/profil-desa') }}">
                     <img src="{{ asset('images/user.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">
                     Profil Desa
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/kelola-admin') ? 'active' : '' }}" href="{{ url('admin/kelola-admin') }}">
                     <img src="{{ asset('images/management.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">

@@ -38,8 +38,6 @@ Route::prefix('admin')->group(function () {
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
 });
 
-
-
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
@@ -57,10 +55,6 @@ Route::get('/reservasi', function () {
     return view('reservasi');
 });
 
-Route::get('/create', function () {
-    return view('admin.create');
-});
-
 Route::get('/detail-destinasi', function () {
     return view('detail-destinasi');
 });
@@ -76,6 +70,12 @@ Route::get('/kontak', function () {
 Route::get('/berita', function () {
     return view('berita');
 });
+
+// cpmponents
+Route::get('/create', function () {
+    return view('components.create');
+});
+
 
 // Route::get('/destinasi', function () {
 //     return view('destinasi');
