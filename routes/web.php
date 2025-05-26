@@ -34,13 +34,13 @@ Route::post('/kontak', [ContactController::class, 'sendMessage'])->name('kontak.
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard2', function () { return view('admin.dashboard2'); });
+    // Route::get('dashboard2', function () { return view('admin.dashboard2'); });
     Route::get('data-wisata', [DestinasiController::class, 'index2']);
     // Route::get('data-wisata', function () { return view('admin.data-wisata'); });
     Route::get('galeri-wisata', function () { return view('admin.galeri-wisata'); });
     Route::get('data-booking', function () { return view('admin.data-booking'); });
     Route::get('laporan', function () { return view('admin.laporan'); });
-    Route::get('profil-desa', function () { return view('admin.profil-desa'); });
+    // Route::get('profil-desa', function () { return view('admin.profil-desa'); });
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
 });
 
