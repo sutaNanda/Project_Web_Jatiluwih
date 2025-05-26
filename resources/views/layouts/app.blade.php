@@ -89,7 +89,7 @@
             {{-- <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/profil-desa') ? 'active' : '' }}" href="{{ url('admin/profil-desa') }}">
                     <img src="{{ asset('images/user.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">
-                    Profil Desa
+                    profil-desa
                 </a>
             </li> --}}
             <li class="nav-item">
