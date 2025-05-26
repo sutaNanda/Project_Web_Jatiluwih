@@ -4,8 +4,8 @@
     <!-- section destinasi -->
     <section class="py-16 px-4">
         <div class="max-w-screen-xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Destinasi Wisata Populer di Desa Jatiluwih</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="text-5xl text-center font-bold leading-tight capitalize mb-14">Destinasi Wisata Populer <br> di Desa Jatiluwih</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
                 
                 @foreach ($destinasi as $item)
                     <div class="bg-white p-6 rounded-xl shadow transition duration-500 hover:shadow-lg border-2 border-green-800">

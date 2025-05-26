@@ -9,11 +9,11 @@
             <input type="text" class="form-control" id="searchInput" placeholder="Cari wisata...">
         </div>
 
-        <a href="/create" class="btn btn-success btn-sm text-white" style="text-decoration: none;">
+        <a href="/create" class="btn btn-success mb-2.5 btn-sm text-white" style="text-decoration: none;">
             Tambah Destinasi
         </a>
 
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered mt-10">
             <thead>
                 <tr>
                     <th>No</th>

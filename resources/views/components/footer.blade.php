@@ -5,7 +5,7 @@
                 <a href="" class="flex items-center flex-wrap w-96">
                     <img src="{{ asset('img/logo.png') }}" class="h-8 me-3" alt="" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Desa Wisata Jatiluwih</span>
-                    <p class="text-white text-justify mt-2 text-sm">Website Jatiluwih ini merupakan hasil dari proyek yang dibuat semata-mata untuk memenuhi tugas mata kuliah di perguruan tinggi. Seluruh konten, gambar, data, serta fitur yang ditampilkan di dalam website ini bertujuan untuk keperluan akademik dan pembelajaran. Website ini tidak digunakan untuk tujuan komersial, promosi, ataupun transaksi nyata, serta tidak mewakili pihak resmi dari Desa Wisata Jatiluwih.</p>
+                    <p class="text-white text-justify mt-2 text-sm">Website Jatiluwih ini merupakan hasil dari proyek yang dibuat semata-mata untuk memenuhi tugas mata kuliah Pemrograman Web II. Seluruh konten, gambar, data, serta fitur yang ditampilkan di dalam website ini bertujuan untuk keperluan akademik dan pembelajaran. Website ini tidak digunakan untuk tujuan komersial, promosi, ataupun transaksi nyata, serta tidak mewakili pihak resmi dari Desa Wisata Jatiluwih.</p>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

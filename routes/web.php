@@ -59,13 +59,6 @@ Route::get('/dashboard', function () {
 
 
 // routes global
-// Route::get('/reservasi', function () {
-//     return view('reservasi',[
-//         'title' => 'Reservasi',
-//         'bg' => asset('img/img-13.jpg'),
-//         'deskripsi' => 'berbagi paket wisata menarik yang bisa dinikmati'
-//     ]);
-// });
 
 Route::get('/form', function () {
     return view('form-reservasi',[
@@ -75,7 +68,7 @@ Route::get('/form', function () {
 });
 
 Route::get('/create', function () {
-    return view('admin.create');
+    return view('components.create');
 });
 
 Route::get('/detail-destinasi', function () {
@@ -85,7 +78,7 @@ Route::get('/detail-destinasi', function () {
 Route::get('/profil', function () {
     return view('profil',[
         'title' => 'Profil',
-        'bg' => asset('img/img-13.jpg'),
+        'bg' => asset('img/profil2.jpg'),
         'deskripsi' => 'tentang desa wisata jatiluwih'
     ]);
 });
