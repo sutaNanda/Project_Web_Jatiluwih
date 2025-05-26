@@ -68,7 +68,7 @@ Route::get('/form', function () {
 });
 
 Route::get('/create', function () {
-    return view('components.create');
+    return view('admin.crud-destinasi.create');
 });
 
 Route::get('/detail-destinasi', function () {
