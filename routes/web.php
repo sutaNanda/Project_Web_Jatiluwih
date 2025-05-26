@@ -12,7 +12,7 @@ use App\Http\Controllers\PaketController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/destinasi', [DestinasiController::class, 'index',]);
+Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
 
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
 

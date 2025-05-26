@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $destinasi->nama_destinasi }} - Detail Destinasi</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body>
-    {{-- navbar --}}
+<body class="bg-gray-100 text-gray-800">
+
+    {{-- Navbar --}}
     <x-navbar></x-navbar>
-    {{-- end navbar --}}
+    {{-- End Navbar --}}
 
-    <section>
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-3xl font-bold mb-6">{{ $destinasi->nama_destinasi }}</h1>
-            <img src="{{ asset('gambar/' . $destinasi->gambar) }}" alt="{{ $destinasi->nama_destinasi }}" class="w-full h-96 object-cover rounded mb-6">
-            <div class="text-gray-800 leading-relaxed text-lg">
-                {!! $destinasi->deskripsi !!}
-            </div>
+  {{-- Gambar Fullscreen di Atas --}}
+<div class="-mt-32"> {{-- Geser ke atas sejajar navbar --}}
+    <img src="{{ asset('gambar/' . $destinasi->gambar) }}" 
+         alt="{{ $destinasi->nama_destinasi }}" 
+         class="w-full object-cover aspect-[16/9]">
+</div>
+
+<main class="pb-16">
+    <div class="max-w-4xl mx-auto px-6 mt-8">
+        <h1 class="text-4xl font-bold text-green-700 mb-4">
+            {{ $destinasi->nama_destinasi }}
+        </h1>
+
+        <div class="text-lg leading-relaxed text-justify">
+            {!! nl2br(e($destinasi->deskripsi)) !!}
         </div>
-    </section>
 
-    {{-- footer --}}
+        <div class="mt-8">
+            <a href="{{ route('destinasi.index') }}" 
+               class="inline-block px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">
+                ← Kembali ke Daftar Destinasi
+            </a>
+        </div>
+    </div>
+</main>
+
+
+
+    {{-- Footer --}}
     <x-footer></x-footer>
-    {{-- end footer --}}
+    {{-- End Footer --}}
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    {{-- Scroll Navbar Script --}}
     <script>
         window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-green-800', 'backdrop-blur-xs');
-                navbar.classList.add('bg-opacity-50'); 
-                navbar.classList.add('border-b-1', 'border-gray-600');
+                navbar.classList.add('bg-green-800', 'border-b', 'border-gray-600');
                 navbar.classList.remove('bg-transparent');
-                
-            } else if (window.scrollY === 0) {
+            } else {
+                navbar.classList.remove('bg-green-800', 'border-b', 'border-gray-600');
                 navbar.classList.add('bg-transparent');
-                navbar.classList.remove('backdrop-blur-xs');
-                navbar.classList.remove('bg-opacity-30');
-                navbar.classList.remove('border-1');
-            }else {
-                navbar.classList.add('border-0');
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('backdrop-blur-xs', 'bg-opacity-50', 'border-b-1');
             }
         });
     </script>

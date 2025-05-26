@@ -31,6 +31,7 @@ class DestinasiController extends Controller
         return view('detail-destinasi', compact('destinasi'));
     }
 
+
     public function store(Request $request)
     {
         $request->validate([
