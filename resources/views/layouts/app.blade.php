@@ -70,9 +70,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/galeri-wisata') ? 'active' : '' }}" href="{{ url('admin/galeri-wisata') }}">
+                <a class="nav-link {{ request()->is('admin/berita') ? 'active' : '' }}" href="{{ url('admin/berita') }}">
                     <img src="{{ asset('images/image-galery.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">
-                    Galeri Wisata
+                    Berita
                 </a>
             </li>
             <li class="nav-item">
