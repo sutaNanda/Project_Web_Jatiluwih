@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }} - Desa Wisata Jatiluwih</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
 
     <!-- <link rel="stylesheet" href="{{ asset('css/testimoni.css') }}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+
     <style>
         .swiper-button-prev:after,
         .swiper-rtl .swiper-button-next:after {
