@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\AdminController;
+
 
 
 
@@ -42,12 +44,16 @@ Route::prefix('admin')->group(function () {
     Route::get('laporan', function () { return view('admin.laporan'); });
     // Route::get('profil-desa', function () { return view('admin.profil-desa'); });
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
+    
+    //test edit admin
+    Route::resource('kelola-admin', AdminController::class);
 });
 
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 // Dummy dashboard (sementara)
 Route::get('/dashboard', function () {
     if (!session('is_logged_in')) {
