@@ -22,6 +22,7 @@
             background-color: #f8f9fa; 
             overflow-y: auto;
             padding-top: 1rem;
+            border-right: 3px solid #0e6251;
         }
 
         .content {
@@ -38,7 +39,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3498db;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0e6251;">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="/img/logo.png" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
