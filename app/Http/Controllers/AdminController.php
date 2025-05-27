@@ -32,10 +32,10 @@ class AdminController extends Controller
         return view('admin.laporan');
     }
 
-    // public function profilDesa()
-    // {
-    //     return view('admin.prfil-desa');
-    // }
+    public function dataPaketWisata()
+    {
+        return view('admin.data-paket-wisata');
+    }
 
     public function kelolaAdmin()
     {

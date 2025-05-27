@@ -42,7 +42,7 @@ Route::prefix('admin')->group(function () {
     Route::get('berita', function () { return view('admin.berita'); });
     Route::get('data-booking', function () { return view('admin.data-booking'); });
     Route::get('laporan', function () { return view('admin.laporan'); });
-    // Route::get('profil-desa', function () { return view('admin.profil-desa'); });
+    Route::get('data-paket-wisata', [PaketController::class, 'index']);
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
     
     //test edit admin
@@ -96,3 +96,7 @@ Route::get('/kontak', function () {
         'deskripsi' => 'Tanya Tentang sesuatu? Hubungi Kami Segera!'
     ]);
 });
+
+
+
+Route::resource('paket', PaketController::class);
