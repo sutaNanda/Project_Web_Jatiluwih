@@ -87,12 +87,12 @@
                     Laporan
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/profil-desa') ? 'active' : '' }}" href="{{ url('admin/profil-desa') }}">
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/data-paket-wisata') ? 'active' : '' }}" href="{{ url('admin/data-paket-wisata') }}">
                     <img src="{{ asset('images/user.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">
-                    profil-desa
+                    Data Paket Wisata
                 </a>
-            </li> --}}
+            </li>
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/kelola-admin') ? 'active' : '' }}" href="{{ url('admin/kelola-admin') }}">
                     <img src="{{ asset('images/management.png') }}" alt="logo" style="width: 20px; height: 20px; margin-right: 10px;">
