@@ -8,6 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReservasiController;
 
 
 
@@ -22,7 +23,7 @@ Route::post('/destinasi', [DestinasiController::class, 'store'])->name('destinas
 
 Route::get('/berita', [BeritaController::class, 'index']);
 
-Route::get('/reservasi', [PaketController::class, 'index']);
+Route::get('/paket', [PaketController::class, 'index']);
 
 
 
@@ -36,17 +37,25 @@ Route::post('/kontak', [ContactController::class, 'sendMessage'])->name('kontak.
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::prefix('admin')->group(function () {
-    // Route::get('dashboard2', function () { return view('admin.dashboard2'); });
     Route::get('data-wisata', [DestinasiController::class, 'index2']);
     // Route::get('data-wisata', function () { return view('admin.data-wisata'); });
-    Route::get('berita', function () { return view('admin.berita'); });
+
+    // Route::get('berita', [BeritaController::class, 'admin_berita'])->name('admin.berita');
+
+    // Route::get('berita', [BeritaController::class, 'admin_berita'])->name('admin.berita');
+
     Route::get('data-booking', function () { return view('admin.data-booking'); });
     Route::get('laporan', function () { return view('admin.laporan'); });
     Route::get('data-paket-wisata', [PaketController::class, 'index']);
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
+    Route::get('berita', function () { return view('admin.berita'); });
     
     //test edit admin
     Route::resource('kelola-admin', AdminController::class);
+
+    //test edit berita
+    Route::resource('berita', BeritaController::class);
+
 });
 
 // login
@@ -66,12 +75,9 @@ Route::get('/dashboard', function () {
 
 // routes global
 
-Route::get('/form', function () {
-    return view('form-reservasi',[
-        'title' => 'form reservasi',
-        'bg' => asset('img/bg-1.jpg'),
-    ]);
-});
+
+Route::get('/reservasi/form/{paket_id}', [ReservasiController::class, 'form'])->name('reservasi.form');
+Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
 
 Route::get('/create', function () {
     return view('admin.crud-destinasi.create');

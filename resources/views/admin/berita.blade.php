@@ -11,7 +11,7 @@
     </div>
 
     <!-- Tombol Tambah Berita -->
-    <a href="/create" class="btn btn-success btn-sm text-white mb-3">
+    <a href="{{ route('berita.create') }}" class="btn btn-success btn-sm text-white mb-3">
         Tambah Berita
     </a>
 
@@ -23,28 +23,29 @@
                 <th>Nama Berita</th>
                 <th>Deskripsi</th>
                 <th>Gambar</th>
-                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Contoh Baris Data -->
+            @foreach ($beritas as $index => $item)
             <tr>
-                <td>1</td>
-                <td>Air Terjun Yeh Hoo</td>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ $item->judul }}</td>
+                <td>{{Str::limit($item->konten, 100)}}</td>
                 <td>
-                    Air Terjun Yeh Hoo adalah salah satu permata tersembunyi di Jatiluwih, Bali. Terletak tidak jauh dari pusat desa, air terjun ini menyuguhkan suasana sejuk dan damai...
+                    <img src="{{ asset('gambar/' . $item->gambar) }}" alt="" style="width: 350px">
                 </td>
                 <td>
-                    <img src="{{ asset('img/img-1.jpg') }}" width="100">
-                </td>
-                <td>aktif</td>
-                <td>
-                    <a href="/berita/1/edit" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                    <form action="" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin hapus?')">Hapus</button>
+                    </form>
                 </td>
             </tr>
-            <!-- Tambahkan baris lain di sini jika perlu -->
+            @endforeach
+
         </tbody>
     </table>
 </div>

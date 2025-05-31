@@ -12,10 +12,9 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>No</th>
                     <th>Nama Admin</th>
                     <th>Email</th>
-                    <th>Peran</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -23,9 +22,8 @@
                 @foreach ($admins as $index => $admin)
                 <tr>
                     <td>{{ $index + 1 }}</td>
-                    <td>{{ $admin->name }}</td>
+                    <td>{{ $admin->nama }}</td>
                     <td>{{ $admin->email }}</td>
-                    <td>{{ $admin->role }}</td>
                     <td>
                         <a href="{{ route('kelola-admin.edit', $admin->id) }}" class="btn btn-info btn-sm">Edit</a>
                         <form action="{{ route('kelola-admin.destroy', $admin->id) }}" method="POST" style="display:inline;">
