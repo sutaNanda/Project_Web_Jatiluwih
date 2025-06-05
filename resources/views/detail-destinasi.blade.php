@@ -33,7 +33,7 @@
         </div>
 
         <div class="mt-8">
-            <a href="{{ route('destinasi.index') }}" 
+            <a href="{{ route('destinasi.user') }}" 
                class="inline-block px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">
                 ← Kembali ke Daftar Destinasi
             </a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Berita;
 
 class AdminController extends Controller
 {
@@ -17,9 +18,9 @@ class AdminController extends Controller
         return view('admin.data-wisata');
     }
 
-    public function galeriWisata()
+    public function data_berita()
     {
-        return view('admin.galeri-wisata');
+        return view('admin.data-berita');
     }
 
     public function dataBooking()
@@ -44,16 +45,15 @@ class AdminController extends Controller
 
     //test create
     public function create() {
-    return view('admin.tambah-admin');
+    return view('admin.crud-admins.tambah');
     }
 
     public function store(Request $request)
     {
         Admin::create([
-            'name' => $request->name,
+            'nama' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->password), // Enkripsi!
-            'role' => $request->role,
         ]);
 
         return redirect()->route('kelola-admin.index')->with('success', 'Admin berhasil ditambahkan!');
@@ -61,7 +61,7 @@ class AdminController extends Controller
 
     public function edit($id) {
         $admin = Admin::findOrFail($id);
-        return view('admin.edit-admin', compact('admin'));
+        return view('admin.crud-admins.edit', compact('admin'));
     }
 
     public function update(Request $request, $id) {
@@ -80,4 +80,5 @@ class AdminController extends Controller
     $admins = Admin::all(); // Ambil semua data admin dari tabel
     return view('admin.kelola-admin', compact('admins')); // kirim ke view
     }
+    
 }

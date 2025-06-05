@@ -3,13 +3,13 @@
 @section('content')
     <!-- Konten Utama -->
     <div class="col-md-10 p-4">
-        <h1 class="mb-4">Data Wisata</h1>
+        <h1 class="mb-4">Data Destinasi</h1>
 
         <div class="mb-3">
             <input type="text" class="form-control" id="searchInput" placeholder="Cari wisata...">
         </div>
 
-        <a href="/create" class="btn btn-success mb-2.5 btn-sm text-white" style="text-decoration: none;">
+        <a href="{{ route('data-wisata.create') }}" class="btn btn-success mb-3 btn-sm text-white" style="text-decoration: none;">
             Tambah Destinasi
         </a>
 
@@ -29,12 +29,19 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->nama_destinasi }}</td>
-                        <td>{{ $item->deskripsi }}</td>
-                        <td><img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" style="width: 100px"></td>
-                        <td>{{ $item->status }}</td>
+                        <td>{{ Str::limit($item->deskripsi, 100)}}</td>
                         <td>
-                            <a href="#" class="btn btn-info btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                            <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" style="width: 100px">
+                        </td>
+                        <td>{{ $item->status }}</td>
+                        <td class="py-3">
+                            <a href="{{ route('data-wisata.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
+                            <form action="{{ route('data-wisata.destroy', $item->id)}}" method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin hapus?')">Hapus</button>
+                            </form>
+                            {{-- <a href="{{ route('data-wisata.destroy', $item->id)}}" class="btn btn-danger btn-sm">Hapus</a> --}}
                         </td>
                     </tr>
                 @empty

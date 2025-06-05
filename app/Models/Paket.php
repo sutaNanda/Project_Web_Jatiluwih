@@ -20,7 +20,6 @@ class Paket extends Model
         'durasi',
         'populer',
     ];
-
     public function destinasi()
     {
         return $this->belongsTo(Destinasi::class);

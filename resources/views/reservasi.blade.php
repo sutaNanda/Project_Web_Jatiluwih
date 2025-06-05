@@ -11,30 +11,36 @@
 
             <!-- Grid container -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
-                <!-- Kartu paket wisata -->
                 @foreach ($paket as $item)
-                    <div class="bg-white rounded-lg shadow-sm mx-auto border-2 border-green-800">
-                        <a href="#" class="w-72 pt-6 flex justify-center items-center mx-auto">
-                            <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_paket }}" class="w-full h-48 object-cover rounded">
+                    <div class="bg-white rounded-xl px-4 shadow-sm mx-auto border-2 border-green-800 min-h-[400px] min-w-[350px] flex flex-col">
+                        <!-- Gambar dengan ukuran tetap dan rasio konsisten -->
+                        <a href="#" class="w-full h-[200px] overflow-hidden flex items-center justify-center mt-4 rounded-lg">
+                            <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_paket }}" class="w-full h-full object-cover">
                         </a>
-                        <div class="px-10 p-5 mx-auto" style="line-height: 1.5">
-                            <a href="#">
+                        
+                        <!-- Konten -->
+                        <div class="py-5 flex-grow flex flex-col justify-between">
+                            <div>
                                 <h5 class="text-2xl font-semibold tracking-tight text-gray-900">{{ $item->nama_paket }}</h5>
-                            </a>
-                            <p class="capitalize font-medium text-yellow-800">harga: Rp{{ number_format($item->harga, 0, ',', '.') }}</p>
-                            <p class="text-gray-800">{{ $item->fasilitas }}</p>
-                            <div class="flex items-center mt-2.5 mb-4 gap-2">
+                                <p class="capitalize font-medium text-yellow-800">harga: Rp{{ number_format($item->harga, 0, ',', '.') }}</p>
+                                <p class="text-gray-800">{{ $item->fasilitas }}</p>
+                                
                                 @if ($item->populer)
-                                    <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm">Populer</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm inline-block mt-2">Populer</span>
                                 @endif
                             </div>
-                            <div class="flex flex-col w-1/2 mx-auto mb-4">
-                                <a href="#" class="text-white bg-green-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-4">Lihat Paket</a>
+
+                            <!-- Tombol -->
+                            <div class="flex justify-center mt-4">
+                                <a href="{{ route('form-reservasi', $item->id) }}" class="text-white bg-green-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                    Lihat Paket
+                                </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
+
 
         </div>
     </section>

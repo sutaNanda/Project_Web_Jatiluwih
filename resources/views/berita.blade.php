@@ -11,7 +11,8 @@
                     <div class="bg-gray-100 rounded-lg p-4 border-2 border-green-800">
                         <!-- Gambar berita -->
                         @if ($item->gambar)
-                            <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->judul }}" class="h-48 w-full object-cover rounded mb-4">
+
+                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" class="h-48 w-full object-cover rounded mb-4">
                         @else
                             <div class="h-48 bg-gray-300 rounded mb-4"></div>
                         @endif
@@ -32,7 +33,7 @@
                 <h3 class="text-3xl font-semibold mb-4">Latest Post</h3>
                 @foreach ($berita as $item)
                     <div class="mb-4 border-2 border-green-800 rounded p-2 py-4">
-                        <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->judul }}" class="h-40 w-full object-cover rounded mb-4 mx-auto">                        
+                        <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" class="h-40 w-full object-cover rounded mb-4 mx-auto">
                         <strong class="block">{{ $item->judul }}</strong>
                         <a href="#" class="text-blue-600 text-sm hover:underline">Read More</a>
                         <div class="text-xs text-gray-600">| {{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</div>

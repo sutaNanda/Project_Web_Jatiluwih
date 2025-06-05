@@ -28,7 +28,7 @@
                             <a href="/kontak" class="hover:underline">Kontak Kami</a>
                         </li>
                         <li>
-                            <a href="/reservasi" class="hover:underline">Pemesanan</a>
+                            <a href="/paket" class="hover:underline">Pemesanan</a>
                         </li>
                         <li>
                             <a href="" class="hover:underline">Bahasa</a>
