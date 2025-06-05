@@ -11,7 +11,7 @@
     </div>
 
     <!-- Tombol Tambah Berita -->
-    <a href="{{ route('berita.create') }}" class="btn btn-success btn-sm text-white mb-3">
+    <a href="{{ route('data-berita.create') }}" class="btn btn-success btn-sm text-white mb-3">
         Tambah Berita
     </a>
 
@@ -33,11 +33,11 @@
                 <td>{{ $item->judul }}</td>
                 <td>{{Str::limit($item->konten, 100)}}</td>
                 <td>
-                    <img src="{{ asset('gambar/' . $item->gambar) }}" alt="" style="width: 350px">
+                    <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" style="max-width: 100%;">
                 </td>
                 <td>
-                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="" method="POST" class="d-inline">
+                    <a href="{{ route('data-berita.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <form action="{{ route('data-berita.destroy', $item->id) }}" method="POST" class="mt-2">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin hapus?')">Hapus</button>

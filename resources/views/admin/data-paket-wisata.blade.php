@@ -9,7 +9,7 @@
         <input type="text" class="form-control" id="searchInput" placeholder="Cari paket wisata...">
     </div>
 
-    <a href="{{ route('paket.create') }}" class="btn btn-success btn-sm text-white mb-3">
+    <a href="{{ route('data-paket-wisata.create') }}" class="btn btn-success btn-sm text-white mb-3">
         Tambah Paket
     </a>
 
@@ -33,14 +33,16 @@
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $item->nama_paket }}</td>
                     <td>{{ $item->destinasi->nama_destinasi ?? 'Tidak diketahui' }}</td>
-                    <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_paket }}" style="width: 100px"></td>
+                    <td>
+                        <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" style="width: 100px">
+                    </td>
                     <td>Rp{{ number_format($item->harga, 0, ',', '.') }}</td>
                     <td>{{ $item->fasilitas }}</td>
                     <td>{{ $item->durasi }}</td>
                     <td>{{ $item->populer ? 'Ya' : 'Tidak' }}</td>
                     <td>
-                        <a href="{{ route('paket.edit', $item) }}" class="btn btn-info btn-sm">Edit</a>
-                        <form action="{{ route('paket.destroy', $item) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('data-paket-wisata.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
+                        <form action="{{ route('data-paket-wisata.destroy', $item->id) }}" method="POST" class="mt-2">
                             @csrf
                             @method('DELETE')
                             <button onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>

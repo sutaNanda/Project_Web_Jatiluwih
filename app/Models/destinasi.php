@@ -9,9 +9,14 @@ class Destinasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'destinasi'; // Explicitly set the table name to destinasi
+    protected $table = 'destinasi';
 
-    protected $fillable = ['nama_destinasi'];
+    protected $fillable = [
+        'nama_destinasi',
+        'deskripsi',
+        'gambar',
+        'status',
+    ];
 
     public function pakets()
     {

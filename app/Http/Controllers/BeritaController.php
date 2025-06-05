@@ -8,35 +8,59 @@ use App\Models\Berita;
 
 class BeritaController extends Controller
 {
-       public function index()
+
+    // Untuk halaman berita bagian pengunjung
+    public function user()
+    {
+        $berita = Berita::all();
+        return view('berita', compact('berita'),[
+            'title' => 'Berita',
+            'bg' => asset('img/bg-1.jpg'),
+            'deskripsi' => 'Berita Seputar Pariwisata di Jatiluwih'
+        ]);
+    }
+
+    // Untuk halaman data berita bagian admin
+    public function index()
     {
         $beritas = Berita::all();
-        return view('admin.berita', compact('beritas'));
+        return view('admin.data-berita', compact('beritas'));
     }
 
     public function create()
     {
-        return view('admin.crud-berita.create');
+        $destinasi = \App\Models\Destinasi::all(); // pastikan model Destinasi sudah ada
+        return view('admin.crud-berita.create', compact('destinasi'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'judul' => 'required|string|max:255',
-            'konten' => 'required|string',
-            'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+   public function store(Request $request)
+{
+    $request->validate([
+        'judul' => 'required|string|max:255',
+        'konten' => 'required|string',
+        'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Bukan 'gambar', tapi 'image'
+        'destinasi_id' => 'nullable|exists:destinasi,id',
+    ]);
 
-        $gambar = $request->file('gambar')->store('gambar', 'public');
+    // Ambil file gambar dari request
+    $file = $request->file('gambar');
 
-        Berita::create([
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'gambar' => $gambar,
-        ]);
+    // Buat nama file unik
+    $filename = time() . '_' . $file->getClientOriginalName();
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil ditambahkan!');
-    }
+    // Simpan ke folder public/gambar
+    $file->move(public_path('gambar'), $filename);
+
+    // Simpan ke database
+    Berita::create([
+        'judul' => $request->judul,
+        'konten' => $request->konten,
+        'gambar' => 'gambar/' . $filename,
+        'destinasi_id' => $request->destinasi_id,
+    ]);
+
+    return redirect()->route('data-berita.index')->with('success', 'Berita berhasil ditambahkan!');
+}
 
     public function edit($id)
     {
@@ -54,21 +78,25 @@ class BeritaController extends Controller
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+        // Update gambar jika ada file baru
         if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar')->store('gambar', 'public');
-            $berita->gambar = $gambar;
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('gambar'), $filename);
+            $berita->gambar = 'gambar/' . $filename;
         }
 
         $berita->judul = $request->judul;
         $berita->konten = $request->konten;
         $berita->save();
 
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil diperbarui!');
+        return redirect()->route('data-berita.index')->with('success', 'Berita berhasil diperbarui!');
     }
+
 
     public function destroy($id)
     {
         Berita::destroy($id);
-        return redirect()->route('berita.index')->with('success', 'Berita berhasil dihapus!');
+        return redirect()->route('data-berita.index')->with('success', 'Berita berhasil dihapus!');
     }
 }

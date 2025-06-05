@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-10 p-4">
     <h1 class="mb-4">Edit Paket Wisata</h1>
-    <form action="{{ route('paket.update', $paket) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('data-paket-wisata.update', $paket->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -41,7 +41,7 @@
             <label class="form-check-label" for="populer">Populer</label>
         </div>
         <button type="submit" class="btn btn-success">Update</button>
-        <a href="{{ route('paket.index') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('data-paket-wisata.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 @endsection

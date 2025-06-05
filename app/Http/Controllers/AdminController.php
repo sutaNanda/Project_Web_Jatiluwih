@@ -18,9 +18,9 @@ class AdminController extends Controller
         return view('admin.data-wisata');
     }
 
-    public function galeriWisata()
+    public function data_berita()
     {
-        return view('admin.galeri-wisata');
+        return view('admin.data-berita');
     }
 
     public function dataBooking()

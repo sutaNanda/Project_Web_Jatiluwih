@@ -12,20 +12,18 @@ use App\Http\Controllers\ReservasiController;
 
 
 
-
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/destinasi', [DestinasiController::class, 'index'])->name('destinasi.index');
-
+Route::get('/destinasi', [DestinasiController::class, 'user'])->name('destinasi.user');
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
 
-Route::post('/destinasi', [DestinasiController::class, 'store'])->name('destinasi.store');
+Route::get('/berita', [BeritaController::class, 'user'])->name('berita.user');
 
-Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/paket', [PaketController::class, 'user'])->name('paket.user');
 
-Route::get('/paket', [PaketController::class, 'index']);
+Route::get('/reservasi/{id}', [ReservasiController::class, 'form'])->name('form-reservasi');
 
-
+Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
 
 //kontak
 Route::get('/kontak', [ContactController::class, 'showForm'])->name('kontak.form');
@@ -37,32 +35,27 @@ Route::post('/kontak', [ContactController::class, 'sendMessage'])->name('kontak.
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::prefix('admin')->group(function () {
-    Route::get('data-wisata', [DestinasiController::class, 'index2']);
-    // Route::get('data-wisata', function () { return view('admin.data-wisata'); });
 
-    // Route::get('berita', [BeritaController::class, 'admin_berita'])->name('admin.berita');
-
-    // Route::get('berita', [BeritaController::class, 'admin_berita'])->name('admin.berita');
-
-    Route::get('data-booking', function () { return view('admin.data-booking'); });
+    Route::get('data-booking', function () { return view('admin.data-booking');});
     Route::get('laporan', function () { return view('admin.laporan'); });
-    Route::get('data-paket-wisata', [PaketController::class, 'index']);
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
-    Route::get('berita', function () { return view('admin.berita'); });
-    
-    //test edit admin
     Route::resource('kelola-admin', AdminController::class);
+    Route::resource('data-berita', BeritaController::class)->names('data-berita');
+   
+    Route::resource('data-wisata', DestinasiController::class)->names('data-wisata');
 
-    //test edit berita
-    Route::resource('berita', BeritaController::class);
+    Route::resource('data-paket-wisata', PaketController::class)
+    ->names('data-paket-wisata')
+    ->parameters(['data-paket-wisata' => 'paket']);
 
 });
+
+
 
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
 // Dummy dashboard (sementara)
 Route::get('/dashboard', function () {
     if (!session('is_logged_in')) {
@@ -70,21 +63,10 @@ Route::get('/dashboard', function () {
     }
     return "Selamat datang di Dashboard!";
 });
-// end routes wira
 
 
-// routes global
-
-
-Route::get('/reservasi/form/{paket_id}', [ReservasiController::class, 'form'])->name('reservasi.form');
-Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
-
-Route::get('/create', function () {
-    return view('admin.crud-destinasi.create');
-});
-
-Route::get('/detail-destinasi', function () {
-    return view('detail-destinasi');
+Route::get('/detail-reservasi', function () {
+    return view('form-reservasi');
 });
 
 Route::get('/profil', function () {
@@ -102,7 +84,3 @@ Route::get('/kontak', function () {
         'deskripsi' => 'Tanya Tentang sesuatu? Hubungi Kami Segera!'
     ]);
 });
-
-
-
-Route::resource('paket', PaketController::class);
