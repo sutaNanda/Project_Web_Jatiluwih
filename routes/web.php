@@ -20,6 +20,7 @@ Route::get('/destinasi', [DestinasiController::class, 'user'])->name('destinasi.
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
 
 Route::get('/berita', [BeritaController::class, 'user'])->name('berita.user');
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 
 Route::get('/paket', [PaketController::class, 'user'])->name('paket.user');
 

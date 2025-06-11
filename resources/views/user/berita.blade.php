@@ -18,7 +18,7 @@
                             <h3 class="text-xl font-bold text-gray-800 mb-1">{{ $item->judul }}</h3>
                             <p class="text-sm text-gray-500 mb-3">{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
                             <p class="text-gray-700 leading-relaxed mb-4">{{ Str::limit(strip_tags($item->konten), 100, '...') }}</p>
-                            <a href="#" class="inline-block text-indigo-600 font-semibold hover:underline text-sm">Baca Selengkapnya</a>
+                            <a href="{{ route('berita.show', $item->id) }}" class="inline-block text-indigo-600 font-semibold hover:underline text-sm">Baca Selengkapnya</a>
                         </div>
                     </div>
                 @endforeach
