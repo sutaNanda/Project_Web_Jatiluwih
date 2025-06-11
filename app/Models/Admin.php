@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Model
 {
-    use HasFactory;
 
-    protected $table = 'admins';
+    protected $table = 'admins'; // tabel yang digunakan
+    protected $guard = 'admin';  // guard untuk auth
+
     protected $fillable = ['nama', 'email', 'password'];
+
+    protected $hidden = ['password', 'remember_token'];
 }

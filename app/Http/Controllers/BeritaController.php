@@ -13,7 +13,7 @@ class BeritaController extends Controller
     public function user()
     {
         $berita = Berita::all();
-        return view('berita', compact('berita'),[
+        return view('user.berita', compact('berita'),[
             'title' => 'Berita',
             'bg' => asset('img/bg-1.jpg'),
             'deskripsi' => 'Berita Seputar Pariwisata di Jatiluwih'

@@ -1,62 +1,84 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Konten Utama -->
-<div class="col-md-10 p-4">
-    <h1 class="mb-4">Data Paket Wisata</h1>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-12">
 
-    <div class="mb-3">
-        <input type="text" class="form-control" id="searchInput" placeholder="Cari paket wisata...">
+            <!-- Judul Halaman -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-primary">Data Paket Wisata</h2>
+                <a href="{{ route('data-paket-wisata.create') }}" class="btn btn-success shadow-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Tambah Paket
+                </a>
+            </div>
+
+            <!-- Pencarian -->
+            <div class="input-group mb-4 shadow-sm">
+                <input type="text" class="form-control" id="searchInput" placeholder="Cari paket wisata...">
+            </div>
+
+            <!-- Tabel -->
+            <div class="card border-3 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light text-center">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Paket</th>
+                                    <th>Nama Destinasi</th>
+                                    <th>Gambar</th>
+                                    <th>Harga</th>
+                                    <th>Fasilitas</th>
+                                    <th>Durasi</th>
+                                    <th>Populer</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paketTableBody">
+                                @forelse($paket as $index => $item)
+                                    <tr>
+                                        <td class="text-center">{{ $index + 1 }}</td>
+                                        <td>{{ $item->nama_paket }}</td>
+                                        <td>{{ $item->destinasi->nama_destinasi ?? 'Tidak diketahui' }}</td>
+                                        <td class="text-center">
+                                            <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" class="img-thumbnail" style="width: 100px;">
+                                        </td>
+                                        <td>Rp{{ number_format($item->harga, 0, ',', '.') }}</td>
+                                        <td>{{Str::limit($item->fasilitas, 20, '...') ?? 'Tidak diketahui' }}</td>
+                                        <td>{{ $item->durasi }}</td>
+                                        <td>{{ $item->populer ? 'Ya' : 'Tidak' }}</td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a href="{{ route('data-paket-wisata.edit', $item->id) }}" class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 shadow-sm">
+                                                    <i class="bi bi-pencil-fill"></i> <span>Edit</span>
+                                                </a>
+                                                <form action="{{ route('data-paket-wisata.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger d-flex align-items-center gap-1 shadow-sm">
+                                                        <i class="bi bi-trash-fill"></i> <span>Hapus</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="9" class="text-center text-muted py-4">Tidak ada data paket wisata.</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <a href="{{ route('data-paket-wisata.create') }}" class="btn btn-success btn-sm text-white mb-3">
-        Tambah Paket
-    </a>
-
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama Paket</th>
-                <th>Nama Destinasi</th>
-                <th>Gambar</th>
-                <th>Harga</th>
-                <th>Fasilitas</th>
-                <th>Durasi</th>
-                <th>Populer</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody id="paketTableBody">
-            @forelse($paket as $index => $item)
-                <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ $item->nama_paket }}</td>
-                    <td>{{ $item->destinasi->nama_destinasi ?? 'Tidak diketahui' }}</td>
-                    <td>
-                        <img src="{{ asset('gambar/' . $item->gambar) }}" alt="{{ $item->nama_destinasi }}" style="width: 100px">
-                    </td>
-                    <td>Rp{{ number_format($item->harga, 0, ',', '.') }}</td>
-                    <td>{{ $item->fasilitas }}</td>
-                    <td>{{ $item->durasi }}</td>
-                    <td>{{ $item->populer ? 'Ya' : 'Tidak' }}</td>
-                    <td>
-                        <a href="{{ route('data-paket-wisata.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
-                        <form action="{{ route('data-paket-wisata.destroy', $item->id) }}" method="POST" class="mt-2">
-                            @csrf
-                            @method('DELETE')
-                            <button onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-danger btn-sm">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="9" class="text-center">Tidak ada data paket wisata.</td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
 </div>
+
 @endsection
 
 @section('scripts')
@@ -80,4 +102,22 @@
         });
     });
 </script>
+
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#paketTableBody tr');
+
+        rows.forEach(row => {
+            const namaPaket = row.cells[1].textContent.toLowerCase();
+            const namaDestinasi = row.cells[2].textContent.toLowerCase();
+            const fasilitas = row.cells[5].textContent.toLowerCase();
+
+            const isMatch = namaPaket.includes(filter) || namaDestinasi.includes(filter) || fasilitas.includes(filter);
+
+            row.style.display = isMatch ? '' : 'none';
+        });
+    });
+</script>
+
 @endsection

@@ -1,113 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .booking-container {
-        background: #fff;
-        padding: 24px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        font-family: sans-serif;
-        margin: 20px;
-    }
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-12">
 
-    .breadcrumb {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 16px;
-    }
+            <!-- Judul Halaman -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-primary">Data Booking</h2>
+            </div>
 
-    .breadcrumb a {
-        color: #007BFF;
-        text-decoration: none;
-    }
+            <!-- Card Tabel -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light text-center">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Tanggal Booking</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td>Fahmie</td>
+                                    <td>fahmie@email.com</td>
+                                    <td>2025-05-10</td>
+                                    <td class="text-success fw-semibold text-center">Terkonfirmasi</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info d-flex align-items-center gap-1 shadow-sm mx-auto">
+                                            <i class="bi bi-eye-fill"></i> <span>Detail</span>
+                                        </button>
+                                    </td>
+                                </tr>
 
-    .breadcrumb a:hover {
-        text-decoration: underline;
-    }
+                                {{-- Tambahkan data lain di sini --}}
+                                {{-- @foreach ($bookings as $booking) --}}
+                                {{-- @endforeach --}}
 
-    h1 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 8px;
-    }
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted py-4">Tidak ada data booking ditemukan.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-    .description {
-        color: #666;
-        margin-bottom: 20px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-    }
-
-    table thead {
-        background-color: #f5f5f5;
-    }
-
-    table th, table td {
-        padding: 12px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    table tbody tr:hover {
-        background-color: #f9f9f9;
-    }
-
-    .status-confirmed {
-        color: green;
-        font-weight: bold;
-    }
-
-    .btn-detail {
-        background-color: #007BFF;
-        color: white;
-        padding: 6px 12px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    .btn-detail:hover {
-        background-color: #0056b3;
-    }
-
-    .mb-4 {
-        font-size: 40px;
-    }
-</style>
-
-    <!-- konten utama -->
-    <div class="col-md-10 p-4">
-        <h1 class="mb-4">Data Booking</h1>
-            <p class="description">Berikut adalah daftar data booking yang tersedia.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Tanggal Booking</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Fahmie</td>
-                        <td>fahmie@email.com</td>
-                        <td>2025-05-10</td>
-                        <td class="status-confirmed">Terkonfirmasi</td>
-                        <td><button class="btn-detail">Detail</button></td>
-                    </tr>
-                    <!-- Tambah baris lain jika diperlukan -->
-                </tbody>
-            </table>
+        </div>
     </div>
 </div>
+
 @endsection

@@ -11,7 +11,7 @@ class ReservasiController extends Controller
     public function form($paket_id)
     {
         $paket = Paket::findOrFail($paket_id);
-        return view('form-reservasi', compact('paket'),[
+        return view('user.form-reservasi', compact('paket'),[
             'title' => 'Reservasi',
             'bg' => asset('img/img-13.jpg'),
             'deskripsi' => 'berbagi paket wisata menarik yang bisa dinikmati'
@@ -32,7 +32,6 @@ class ReservasiController extends Controller
 
         Reservasi::create($request->all());
 
-        return redirect()->route('reservasi.form', ['paket_id' => $request->paket_id])
-                         ->with('success', 'Reservasi berhasil dikirim!');
+        return redirect()->route('form-reservasi', ['paket_id' => $request->paket_id]) ->with('success', 'Reservasi berhasil dikirim!');
     }
 }

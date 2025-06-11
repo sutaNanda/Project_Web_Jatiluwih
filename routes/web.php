@@ -9,10 +9,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReservasiController;
+use App\Http\Controllers\TestimoniController;
 
 
 
 Route::get('/home', [HomeController::class, 'index']);
+
 
 Route::get('/destinasi', [DestinasiController::class, 'user'])->name('destinasi.user');
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
@@ -21,9 +23,12 @@ Route::get('/berita', [BeritaController::class, 'user'])->name('berita.user');
 
 Route::get('/paket', [PaketController::class, 'user'])->name('paket.user');
 
-Route::get('/reservasi/{id}', [ReservasiController::class, 'form'])->name('form-reservasi');
+Route::get('/reservasi/{paket_id}', [ReservasiController::class, 'form'])->name('form-reservasi');
 
 Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
+
+Route::post('/testimoni/simpan', [TestimoniController::class, 'simpan'])->name('testimoni.simpan');
+
 
 //kontak
 Route::get('/kontak', [ContactController::class, 'showForm'])->name('kontak.form');
@@ -70,7 +75,7 @@ Route::get('/detail-reservasi', function () {
 });
 
 Route::get('/profil', function () {
-    return view('profil',[
+    return view('user.profil',[
         'title' => 'Profil',
         'bg' => asset('img/profil2.jpg'),
         'deskripsi' => 'tentang desa wisata jatiluwih'
@@ -78,7 +83,7 @@ Route::get('/profil', function () {
 });
 
 Route::get('/kontak', function () {
-    return view('kontak',[
+    return view('user.kontak',[
         'title' => 'Kontak',
         'bg' => asset('img/bg-1.jpg'),
         'deskripsi' => 'Tanya Tentang sesuatu? Hubungi Kami Segera!'
