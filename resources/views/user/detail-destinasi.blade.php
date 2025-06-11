@@ -6,6 +6,8 @@
     <title>{{ $destinasi->nama_destinasi }} - Detail Destinasi</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>

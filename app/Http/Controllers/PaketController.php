@@ -12,7 +12,7 @@ class PaketController extends Controller
     public function user()
 {
     $paket = Paket::all();
-    return view('reservasi', compact('paket'), [
+    return view('user.reservasi', compact('paket'), [
         'title' => 'Reservasi',
         'bg' => asset('img/img-13.jpg'),
         'deskripsi' => 'Pilih paket wisata menarik sesuai keinginan Anda'

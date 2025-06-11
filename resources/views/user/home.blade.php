@@ -10,6 +10,7 @@
     <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
 
     <!-- <link rel="stylesheet" href="{{ asset('css/testimoni.css') }}"> -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 
@@ -86,8 +87,8 @@
                 <p>Desa Wisata Jatiluwih, Kabupaten Tabanan, Provinsi Bali, Indonesia</p>
             </div>
 
-            <div class="text-center border-2 border-green-800 py-2 px-4 bg-green-800 rounded-3xl mx-auto mt-10" >
-                <a href="">Ayo Jelajahi Sekarang</a>
+            <div class="text-center border-2 border-green-800 py-2 px-4 bg-green-800 rounded-3xl mx-auto mt-10">
+                <a href="#about" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' }); return false;">Ayo Jelajahi Sekarang</a>
             </div>
 
         </div>
@@ -107,14 +108,14 @@
     <!-- end section paket -->
 
     <!-- section testimoni -->
-    <section class="py-24 ">
+    <section class="py-24" id="testimoni">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div
                 class="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                 <div class="w-full lg:w-2/5">
-                    <span class="text-4xl text-gray-500 font-medium mb-4 block">Testimonial</span>
+                    <span class="text-4xl text-violet-800 font-medium mb-4 block">Testimonial</span>
                     <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] mb-8">Cerita Dari Meraka Yang Pernah Singgah <br><span
-                            class=" text-transparent bg-clip-text bg-gradient-to-tr from-indigo-600 to-violet-600">Ke Desa Jatiluwih</span>
+                            class=" text-transparent bg-clip-text bg-gradient-to-tr from-green-800 to-green-800">Ke Desa Jatiluwih</span>
                     </h2>
                     <!-- Slider controls -->
                     <div class="flex items-center justify-center lg:justify-start gap-10">
@@ -148,72 +149,26 @@
                     <!--Slider wrapper-->
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            
-                            <div class="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600">
-                                <div class="flex items-center gap-5 mb-5 sm:mb-9">
-                                    <img class="rounded-full object-cover" src="https://pagedone.io/asset/uploads/1696229969.png" alt="avatar">
-                                    <div class="grid gap-1">
-                                        <h5 class="text-gray-900 font-medium transition-all duration-500  ">Jane D</h5>
-                                        <span class="text-sm leading-6 text-gray-500">CEO </span>
+                            @foreach($testimonis as $testimoni)
+                                <div class="swiper-slide bg-white border-1 border-gray-200 rounded-xl max-w-md mx-auto p-5 shadow-md hover:shadow-lg transition duration-300">
+                                    <!-- Foto Kunjungan -->
+                                    <div class="mb-4 rounded-lg overflow-hidden">
+                                        <img src="{{ asset('gambar/' . $testimoni->gambar) }}" alt="Foto Kunjungan"
+                                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105">
+                                    </div>
+
+                                    <!-- Info Testimoni -->
+                                    <div class="mb-2">
+                                        <p class="text-indigo-700 text-sm font-semibold">Paket: {{ $testimoni->paket->nama_paket ?? '-' }}</p>
+                                        <p class="text-gray-700 text-sm">Email: {{ $testimoni->email }}</p>
+                                    </div>
+
+                                    <!-- Komentar -->
+                                    <div class="text-gray-800 text-sm leading-relaxed border-t border-gray-100 pt-3">
+                                        <p class="italic">“{{ $testimoni->pesan }}”</p>
                                     </div>
                                 </div>
-                                <p
-                                    class="text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24  group-hover:text-gray-800">
-                                    The user interface of this pagedone is so intuitive, I was able to start using it
-                                    without any guidance.
-                                </p>
-
-                            </div>
-                            <div
-                                class="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600">
-                                <div class="flex items-center gap-5 mb-5 sm:mb-9">
-                                    <img class="rounded-full object-cover" src="https://pagedone.io/asset/uploads/1696229994.png" alt="avatar">
-                                    <div class="grid gap-1">
-                                        <h5 class="text-gray-900 font-medium transition-all duration-500  ">Harsh P.
-                                        </h5>
-                                        <span class="text-sm leading-6 text-gray-500">Product Designer </span>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800">
-                                    I used to dread doing my taxes every year, but pagedone has made the process so much
-                                    simpler and stress-free.
-                                </p>
-
-                            </div>
-                            <div
-                                class="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600">
-                                <div class="flex items-center gap-5 mb-5 sm:mb-9">
-                                    <img class="rounded-full object-cover" src="https://pagedone.io/asset/uploads/1696229969.png" alt="avatar">
-                                    <div class="grid gap-1">
-                                        <h5 class="text-gray-900 font-medium transition-all duration-500  ">Jane D</h5>
-                                        <span class="text-sm leading-6 text-gray-500">CEO </span>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800">
-                                    The user interface of this pagedone is so intuitive, I was able to start using it
-                                    without any guidance.
-                                </p>
-
-                            </div>
-                            <div
-                                class="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600">
-                                <div class="flex items-center gap-5 mb-5 sm:mb-9">
-                                    <img class="rounded-full object-cover" src="https://pagedone.io/asset/uploads/1696229994.png" alt="avatar">
-                                    <div class="grid gap-1">
-                                        <h5 class="text-gray-900 font-medium transition-all duration-500  ">Harsh P.
-                                        </h5>
-                                        <span class="text-sm leading-6 text-gray-500">Product Designer </span>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800">
-                                    I used to dread doing my taxes every year, but pagedone has made the process so much
-                                    simpler and stress-free.
-                                </p>
-
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -249,6 +204,7 @@
                 navbar.classList.remove('backdrop-blur-xs', 'bg-opacity-50', 'border-b-1');
             }
         });
+        
     </script>
 
     <script>

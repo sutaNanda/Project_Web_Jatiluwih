@@ -11,7 +11,7 @@ class DestinasiController extends Controller
     public function user()
     {
         $destinasi = Destinasi::where('status', 'aktif')->get();
-        return view('destinasi', compact('destinasi'),[
+        return view('user.destinasi', compact('destinasi'),[
             'title' => 'Destinasi',
             'bg' => asset('img/gallery-10.jpg'),
             'deskripsi' => 'berbagi destinasi menarik yang bisa dinikmati'
@@ -28,7 +28,7 @@ class DestinasiController extends Controller
     public function show($id)
     {
         $destinasi = Destinasi::findOrFail($id);
-        return view('detail-destinasi', compact('destinasi'));
+        return view('user.detail-destinasi', compact('destinasi'));
     }
 
     public function create()

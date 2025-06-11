@@ -1,47 +1,45 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
 
 class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login'); // Blade login form
+        return view('auth.login'); // Tetap pakai view yang sama
     }
 
     public function login(Request $request)
     {
-        // Validasi form
+        // Validasi input
         $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Hardcoded username & password
-        $validUsername = 'admin';
-        $validPassword = 'password123';
+        // Cek admin berdasarkan email atau username
+        $admin = Admin::where('email', $request->username)->first();
 
-        // Cek login manual
-        if ($request->username === $validUsername && $request->password === $validPassword) {
-            // Simpan status login ke session
-            session(['is_logged_in' => true]);
+        if ($admin && Hash::check($request->password, $admin->password)) {
+            // Simpan ke session manual (tanpa guard)
+            session(['is_logged_in' => true, 'admin_id' => $admin->id, 'admin_name' => $admin->nama]);
 
-            // Redirect ke dashboard setelah login
             return redirect()->route('admin.dashboard');
         }
 
         return back()->withErrors([
-            'loginError' => 'Username atau Password salah!',
+            'loginError' => 'Email atau Password salah!',
         ])->withInput();
     }
 
-
     public function logout(Request $request)
     {
-        $request->session()->forget('is_logged_in');
+        $request->session()->forget(['is_logged_in', 'admin_id', 'admin_name']);
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
