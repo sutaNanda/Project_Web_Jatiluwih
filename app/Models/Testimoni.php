@@ -14,6 +14,7 @@ class Testimoni extends Model
         'paket_id',
         'tanggal',
         'gambar',
+        'rating',
     ];
 
     public function paket()

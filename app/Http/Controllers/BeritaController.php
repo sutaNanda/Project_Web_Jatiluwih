@@ -20,6 +20,27 @@ class BeritaController extends Controller
         ]);
     }
 
+        // Menampilkan halaman detail berita
+    public function show($id)
+    {
+        $berita = Berita::findOrFail($id);
+
+        // Ambil 5 berita terbaru selain yang sedang dibuka
+        $berita_terbaru = Berita::where('id', '!=', $id)
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+
+        return view('user.detail-berita', [
+            'berita' => $berita,
+            'berita_terbaru' => $berita_terbaru,
+            'title' => $berita->judul,
+            'bg' => asset('img/bg-1.jpg'),
+            'deskripsi' => 'Baca berita lengkap di bawah ini.'
+        ]);
+    }
+
+
     // Untuk halaman data berita bagian admin
     public function index()
     {

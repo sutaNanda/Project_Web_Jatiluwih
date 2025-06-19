@@ -13,6 +13,13 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+    <style>
+        .star-input input:checked ~ svg,
+        .star-input input:hover ~ svg {
+            color: #facc15; /* Tailwind yellow-400 */
+        }
+    </style>
+
 </head>
 <body>
 
@@ -44,13 +51,25 @@
                 <p class="text-gray-800">
                     <span class="font-semibold text-green-950">Fasilitas :</span> {{ $paket->fasilitas }}
                 </p>
-                <p class="text-gray-800"><span class="font-semibold text-green-950">Populer :
-                    </span> {{ $paket->populer ? '⭐' : '' }}
+                <p class="text-gray-800">
+                    <span class="font-semibold text-green-950">Populer:</span>
+
+                    {!! $paket->populer
+                        ? '<svg class="w-5 h-5 inline text-yellow-400" fill="currentColor" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 
+                                        1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 
+                                        1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 
+                                        2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 
+                                        2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 
+                                        .387-1.575Z"/>
+                        </svg>'
+                        : '<span class="text-sm text-gray-500">Tidak Populer</span>' !!}
                 </p>
                 <p class="text-gray-800 mb-2"><span class="font-semibold text-green-950">Durasi :
                     </span> {{ $paket->durasi}}
                 </p>
-                <p class="text-yellow-800 mb-4 text-2xl font-semibold bg-yellow-200 w-[220px] py-2 px-2 rounded-sm">Harga : Rp {{ $paket->harga}}
+                <p class="text-yellow-800 mb-4 text-2xl font-semibold bg-yellow-200 w-[305px] py-2 px-2 rounded-sm">
+                    Harga : Rp{{ number_format($paket->harga, 0, ',', '.') }} / Orang
                 </p>
             </div>
 
@@ -73,7 +92,7 @@
                         <input type="email" name="email" id="email" required
                             class="w-full border border-gray-300 rounded-md px-3 py-2
                                 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                            placeholder="email@example.com">
+                            placeholder="Email">
                     </div>
 
                     <div>
@@ -82,6 +101,29 @@
                             class="w-full border border-gray-300 rounded-md px-3 py-2 resize-none
                                 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                             placeholder="Tulis pengalamanmu..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Rating</label>
+
+                        {{-- Input tersembunyi untuk dikirim ke server --}}
+                        <input type="hidden" name="rating" id="ratingInput" value="0">
+
+                        {{-- Bintang klik --}}
+                        <div id="starContainer" class="flex gap-1 cursor-pointer">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <svg data-star="{{ $i }}" class="w-6 h-6 text-gray-300 transition duration-200 ease-in-out"
+                                    fill="currentColor" viewBox="0 0 22 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 
+                                            1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 
+                                            1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 
+                                            2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 
+                                            2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 
+                                            .387-1.575Z"/>
+                                </svg>
+                            @endfor
+                        </div>
                     </div>
 
                     <div>
@@ -151,8 +193,12 @@
                     </div>
 
                     <div class="">
-                        <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700">Kirim Reservasi</button>
-                        <button type="submit" class="bg-blue-500 text-white mb-80 px-6 py-2 rounded hover:bg-blue-700"><a href="/paket">Kembali</a></button>
+                        <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700">
+                            Kirim Reservasi
+                        </button>
+                        <button type="submit" class="bg-blue-500 text-white mb-80 px-6 py-2 rounded hover:bg-blue-700">
+                            <a href="/paket">Kembali</a>
+                        </button>
                     </div>
                    
                 </form>
@@ -182,6 +228,24 @@
                 navbar.classList.add('bg-transparent');
                 navbar.classList.remove('backdrop-blur-xs', 'bg-opacity-50', 'border-b-1');
             }
+        });
+    </script>
+
+    <script>
+        const stars = document.querySelectorAll('#starContainer svg');
+        const ratingInput = document.getElementById('ratingInput');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const selectedRating = parseInt(star.getAttribute('data-star'));
+                ratingInput.value = selectedRating;
+
+                stars.forEach(s => {
+                    const value = parseInt(s.getAttribute('data-star'));
+                    s.classList.toggle('text-yellow-400', value <= selectedRating);
+                    s.classList.toggle('text-gray-300', value > selectedRating);
+                });
+            });
         });
     </script>
 

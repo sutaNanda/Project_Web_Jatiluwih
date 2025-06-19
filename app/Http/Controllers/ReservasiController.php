@@ -32,6 +32,43 @@ class ReservasiController extends Controller
 
         Reservasi::create($request->all());
 
-        return redirect()->route('form-reservasi', ['paket_id' => $request->paket_id]) ->with('success', 'Reservasi berhasil dikirim!');
+        return redirect()->route('checkout', $reservasi->id);
+
+        // return redirect()->route('form-reservasi', ['paket_id' => $request->paket_id]) ->with('success', 'Reservasi berhasil dikirim!');
     }
+
+    public function laporan()
+    {
+        $reservasis = Reservasi::all();
+        return view('admin.data-booking', compact('reservasis'));
+    }
+
+    public function detail($id)
+    {
+        $booking = Reservasi::findOrFail($id);
+
+        return view('admin.detail-booking', compact('booking'), [
+            'title' => 'Detail Booking',
+            'bg' => asset('img/bg-booking.jpg'),
+        ]);
+    }
+
+    public function konfirmasi($id)
+    {
+        $booking = Reservasi::findOrFail($id);
+        $booking->status = 'Dikonfirmasi';
+        $booking->save();
+
+        return redirect()->back()->with('success', 'Booking berhasil dikonfirmasi.');
+    }
+
+    public function tolak($id)
+    {
+        $booking = Reservasi::findOrFail($id);
+        $booking->status = 'Ditolak';
+        $booking->save();
+
+        return redirect()->back()->with('error', 'Booking telah ditolak.');
+    }
+
 }

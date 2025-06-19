@@ -21,7 +21,7 @@
     <div class="alert alert-info d-flex align-items-center" role="alert">
         <i class="bi bi-info-circle-fill me-2"></i>
         <div>
-            Selamat datang kembali, Admin! Berikut adalah ringkasan data terbaru.
+            Selamat datang kembali, <strong style="text-transform: capitalize;">{{ session('admin_name') }}! </strong>Berikut adalah ringkasan data terbaru.
         </div>
     </div>
 
