@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Berita;
+use App\Models\Reservasi;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard2'); 
+        return view('admin.dashboard2',[
+            'admin' => Admin::all(),
+
+        ]); 
     } //  tidsk terpakai
 
     public function dataWisata()

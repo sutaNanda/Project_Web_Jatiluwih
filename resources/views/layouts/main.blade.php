@@ -38,10 +38,10 @@
     <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{$bg}}'); background-size: cover; background-position: center; background-repeat: no-repeat">
         <div class="w-full h-full text-white items-center flex flex-col justify-center gap-4">
             <div class="text-5xl text-center font-bold leading-tight">
-                <h2 class="text-white capitalize text-5xl font" style="width: 700px; line-height: 90px">{{$deskripsi}}</h2>
+                <h2 class="text-white capitalize text-5xl font" style="width: 850px; line-height: 90px">{{$deskripsi}}</h2>
             </div>
             <div>
-                <p>"We Embrace #TheEntranceofAncientJatiLuwih"</p>
+                <p class="text-white text-xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
             </div>
         </div>
     </section>

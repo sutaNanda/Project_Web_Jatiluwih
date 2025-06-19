@@ -15,6 +15,7 @@ use App\Http\Controllers\TestimoniController;
 
 Route::get('/home', [HomeController::class, 'index']);
 
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/destinasi', [DestinasiController::class, 'user'])->name('destinasi.user');
 Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
@@ -42,7 +43,16 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adm
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('data-booking', function () { return view('admin.data-booking');});
+    Route::get('data-booking', [ReservasiController::class, 'laporan'])->name('data-booking');
+    Route::get('/admin/data-booking/{id}/detail', [ReservasiController::class, 'detail'])
+    ->name('data-booking.detail');
+
+    Route::post('/booking/{id}/konfirmasi', [ReservasiController::class, 'konfirmasi'])->name('booking.konfirmasi');
+    Route::post('/booking/{id}/tolak', [ReservasiController::class, 'tolak'])->name('booking.tolak');
+    Route::get('/admin/booking', [ReservasiController::class, 'laporan'])->name('admin.data-booking');
+
+
+
     Route::get('laporan', function () { return view('admin.laporan'); });
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
     Route::resource('kelola-admin', AdminController::class);

@@ -17,35 +17,46 @@
                         <table class="table table-hover align-middle mb-0">
                             <thead class="table-light text-center">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Nama</th>
+                                    <th>No</th>
                                     <th>Email</th>
-                                    <th>Tanggal Booking</th>
+                                    <th>Nama</th>
+                                    <th>Telepon</th>
+                                    <th>Jumlah Orang</th>
+                                    <th>Tanggal Kunjungan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
+                                @forelse($reservasis as $index => $item)
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Fahmie</td>
-                                    <td>fahmie@email.com</td>
-                                    <td>2025-05-10</td>
-                                    <td class="text-success fw-semibold text-center">Terkonfirmasi</td>
+                                    <td style="text-align: center;">{{ $index + 1 }}</td>
+                                    <td >{{ $item->email }}</td>
+                                    <td >{{ $item->nama }}</td>
+                                    <td >{{ $item->telepon }}</td>
+                                    <td style="text-align: center;">{{ $item->jumlah_orang }}</td>
+                                    <td >{{ $item->tanggal_kunjungan }}</td>
+                                    <td style="text-align: center;">
+                                        @if ($item->status == '')
+                                            <span class="badge bg-warning">Pending</span>
+                                        @elseif($item->status == 'Dikonfirmasi')
+                                            <span class="badge bg-success">Diterima</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-outline-info d-flex align-items-center gap-1 shadow-sm mx-auto">
-                                            <i class="bi bi-eye-fill"></i> <span>Detail</span>
+                                            <a href="{{ route('data-booking.detail', $item->id) }}"><span>Detail</span></a>
                                         </button>
                                     </td>
                                 </tr>
-
-                                {{-- Tambahkan data lain di sini --}}
-                                {{-- @foreach ($bookings as $booking) --}}
-                                {{-- @endforeach --}}
-
+                                @empty
                                 <tr>
                                     <td colspan="6" class="text-center text-muted py-4">Tidak ada data booking ditemukan.</td>
                                 </tr>
+                                @endforelse
+
                             </tbody>
                         </table>
                     </div>

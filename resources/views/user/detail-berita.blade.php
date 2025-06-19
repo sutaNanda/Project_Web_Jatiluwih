@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $berita->judul }} - Detail Berita</title>
+    <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -35,7 +36,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12">
             
             {{-- Konten Utama --}}
-            <div class="md:col-span-2 bg-white p-10 rounded-3xl border-1 border-gray-200">
+            <div class="md:col-span-2 bg-white p-10 rounded-[13px] border-2 border-gray-200">
                 <h1 class="text-5xl font-bold text-green-800 leading-tight mb-6 tracking-tight">
                     {{ $berita->judul }}
                 </h1>
@@ -47,6 +48,9 @@
 
                 {{-- Isi Konten --}}
                <article class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
+                <div class="mb-2">
+                    <img src="{{ asset($berita->gambar) }}" alt="">
+                </div>
                 @php
                     $paragraf = explode("\n\n", $berita->konten);
                 @endphp
@@ -60,14 +64,14 @@
                 {{-- Tombol Kembali --}}
                 <div class="mt-12">
                     <a href="{{ url('/berita') }}" 
-                       class="inline-flex items-center gap-2 px-6 py-2.5 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-700 transition-all">
+                       class="inline-flex items-center gap-2 px-6 py-2.5 bg-green-600 text-white font-semibold rounded-[5px] shadow-md hover:bg-green-700 transition-all">
                         ← Kembali ke Daftar Berita
                     </a>
                 </div>
             </div>
 
             {{-- Sidebar --}}
-            <aside class="md:col-span-1 bg-white p-8 rounded-3xl border border-gray-200 overflow-y-auto max-h-[500px]">
+            <aside class="md:col-span-1 bg-white p-8 rounded-xl border border-gray-200 overflow-y-auto max-h-[500px]">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-green-600 pb-2">
                     Berita Terbaru
                 </h2>

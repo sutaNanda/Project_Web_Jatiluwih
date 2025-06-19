@@ -9,9 +9,9 @@
             <!-- Main Content -->
             <div class="md:col-span-2 space-y-8">
                 @foreach ($berita->take(2) as $item )
-                    <div class="bg-white border border-gray-300 rounded-md overflow-hidden hover:shadow-md transition duration-300">
+                    <div class="bg-white border h-[600px] border-gray-300 rounded-md overflow-hidden hover:shadow-md transition duration-300">
                         @if ($item->gambar)
-                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" class="w-full h-52 object-cover">
+                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" class="w-full h-96 object-cover">
                         @endif
 
                         <div class="p-5">
@@ -34,7 +34,7 @@
                             <div class="flex-1">
                                 <h4 class="text-md font-semibold text-gray-900 leading-snug">{{ $item->judul }}</h4>
                                 <p class="text-xs text-gray-500 mb-1">{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
-                                <a href="#" class="text-indigo-600 text-sm hover:underline">Baca</a>
+                                <a href="{{ route('berita.show', $item->id) }}" class="text-indigo-600 text-sm hover:underline">Baca</a>
                             </div>
                         </div>
                     @endforeach
