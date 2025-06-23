@@ -84,5 +84,7 @@ class AdminController extends Controller
     $admins = Admin::all(); // Ambil semua data admin dari tabel
     return view('admin.kelola-admin', compact('admins')); // kirim ke view
     }
+
+    // kirim email 
     
 }
