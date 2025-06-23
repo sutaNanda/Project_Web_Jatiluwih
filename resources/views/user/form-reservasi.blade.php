@@ -46,7 +46,13 @@
             </div>
             
             <div class="bg-green-100 p-4 rounded text-justify mb-3">
-                <h2 class="text-3xl font-bold mb-2 text-green-950 uppercase">Deskripsi Paket</h2>
+                <h2 class="text-3xl font-bold text-green-900 uppercase mb-4 flex items-center gap-2">
+                    <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h6.5l5.5 5.5V18a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Deskripsi Paket
+                </h2>
                 <p class="text-gray-800 text-md mb-3">{{ $paket->deskripsi }}</p>
                 <p class="text-gray-800">
                     <span class="font-semibold text-green-950">Fasilitas :</span> {{ $paket->fasilitas }}
@@ -68,9 +74,11 @@
                 <p class="text-gray-800 mb-2"><span class="font-semibold text-green-950">Durasi :
                     </span> {{ $paket->durasi}}
                 </p>
-                <p class="text-yellow-800 mb-4 text-2xl font-semibold bg-yellow-200 w-[305px] py-2 px-2 rounded-sm">
-                    Harga : Rp{{ number_format($paket->harga, 0, ',', '.') }} / Orang
-                </p>
+                
+                <div class="bg-yellow-200 text-yellow-900 text-xl font-bold px-6 py-3 rounded-md inline-block shadow-sm tracking-wide">
+                    Harga: Rp{{ number_format($paket->harga, 0, ',', '.') }} / Orang
+                </div>
+
             </div>
 
             {{-- testimino --}}
@@ -143,17 +151,11 @@
 
         </div>
 
-        <div class="w-5/12 flex h-[800px] justify-center">
+        <div class="w-5/12 flex items-center gap-4 flex-col">
             <div class="w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm ">
                 <h2 class="text-4xl font-bold mb-8 text-center">Formulir Reservasi</h2>
 
-                @if(session('success'))
-                    <div class="bg-green-100 text-green-800 p-4 rounded mb-4">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                <form action="{{ route('reservasi.simpan') }}" method="POST" class="space-y-3 h-full">
+                <form action="{{ route('reservasi.simpan') }}" method="POST" class="space-y-3">
                     @csrf
                     <input type="hidden" name="paket_id" value="{{ $paket->id }}">
 
@@ -192,17 +194,61 @@
                         <textarea name="catatan" rows="3" class="w-full border p-2 rounded"></textarea>
                     </div>
 
-                    <div class="">
+                    <div class="mb-4">
                         <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700">
                             Kirim Reservasi
                         </button>
-                        <button type="submit" class="bg-blue-500 text-white mb-80 px-6 py-2 rounded hover:bg-blue-700">
+                        <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700">
                             <a href="/paket">Kembali</a>
                         </button>
                     </div>
                    
                 </form>
             </div>
+
+            {{-- checkout --}}
+            @if(isset($snapToken) && isset($reservasi))
+                <div class="w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm ">
+                    <div class="mb-6 text-center">
+                        <h2 class="text-2xl font-bold text-gray-800">💳 Checkout Pembayaran</h2>
+                        <p class="text-gray-500 text-2xl mt-2">Hai, <span class="font-semibold text-green-600">{{ $reservasi->nama }}</span></p>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-4 mb-4">
+                        <p class="text-gray-600">Total yang harus dibayar:</p>
+                        <p class="text-3xl font-bold text-green-600 mt-1">Rp {{ number_format($paket->harga * $reservasi->jumlah_orang, 0, ',', '.') }},00</p>
+                    </div>
+
+                    <button id="pay-button" class="w-full bg-green-600 hover:bg-green-700 transition-colors text-white py-3 rounded-lg font-semibold shadow-md hover:shadow-lg">
+                        Bayar Sekarang
+                    </button>
+
+                    <p class="text-center text-sm text-gray-400 mt-4">Pembayaran Anda aman dan terenkripsi 🔒</p>
+                </div>
+
+                <script src="https://app.sandbox.midtrans.com/snap/snap.js"
+                    data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+                <script>
+                    document.getElementById('pay-button').onclick = function () {
+                        snap.pay('{{ $snapToken }}', {
+                            onSuccess: function(result){
+                                alert("Sukses!");
+                                window.location.href = "/";
+                            },
+                            onPending: function(result){
+                                alert("Menunggu pembayaran...");
+                            },
+                            onError: function(result){
+                                alert("Gagal: " + result.status_message);
+                            },
+                            onClose: function(){
+                                alert("Kamu menutup pembayaran.");
+                            }
+                        });
+                    };
+                </script>
+            @endif
+
         </div>
 
 

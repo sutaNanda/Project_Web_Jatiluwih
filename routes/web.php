@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DestinasiController;
@@ -27,7 +28,11 @@ Route::get('/paket', [PaketController::class, 'user'])->name('paket.user');
 
 Route::get('/reservasi/{paket_id}', [ReservasiController::class, 'form'])->name('form-reservasi');
 
+// Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
 Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
+
+// Route::post('/reservasi/simpan', [ReservasiController::class, 'simpan'])->name('reservasi.simpan');
+
 
 Route::post('/testimoni/simpan', [TestimoniController::class, 'simpan'])->name('testimoni.simpan');
 
@@ -48,6 +53,7 @@ Route::prefix('admin')->group(function () {
     ->name('data-booking.detail');
 
     Route::post('/booking/{id}/konfirmasi', [ReservasiController::class, 'konfirmasi'])->name('booking.konfirmasi');
+    // Route::post('/booking/{id}/konfirmasi', [AdminController::class, 'confirm'])->name('booking.konfirmasi');
     Route::post('/booking/{id}/tolak', [ReservasiController::class, 'tolak'])->name('booking.tolak');
     Route::get('/admin/booking', [ReservasiController::class, 'laporan'])->name('admin.data-booking');
 
@@ -65,6 +71,12 @@ Route::prefix('admin')->group(function () {
     ->parameters(['data-paket-wisata' => 'paket']);
 
 });
+
+// midtrans
+ Route::get('/bayar/{id}', [PembayaranController::class, 'bayar'])->name('bayar');
+ Route::post('/midtrans/callback', [PembayaranController::class, 'handleCallback']);
+
+
 
 
 
@@ -99,4 +111,8 @@ Route::get('/kontak', function () {
         'bg' => asset('img/bg-1.jpg'),
         'deskripsi' => 'Tanya Tentang sesuatu? Hubungi Kami Segera!'
     ]);
+});
+
+Route::get('/bayar', function () {
+    return view('user.bayar');
 });

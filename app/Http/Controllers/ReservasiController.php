@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Paket;
 use App\Models\Reservasi;
 use Illuminate\Http\Request;
+use App\Models\Pembayaran;
+use Midtrans\Snap;
+use Midtrans\Config;
 
 class ReservasiController extends Controller
 {
@@ -20,22 +23,56 @@ class ReservasiController extends Controller
 
     public function simpan(Request $request)
     {
-        $request->validate([
-            'nama' => 'required|string|max:255',
+        $validated = $request->validate([
+            'paket_id' => 'required',
+            'nama' => 'required',
             'email' => 'required|email',
             'telepon' => 'required',
-            'paket_id' => 'required|exists:paket,id',
             'jumlah_orang' => 'required|integer|min:1',
             'tanggal_kunjungan' => 'required|date',
-            'catatan' => 'nullable|string'
+            'catatan' => 'nullable',
         ]);
 
-        Reservasi::create($request->all());
+        $reservasi = Reservasi::create($validated);
+        $paket = $reservasi->paket;
+        $jumlah = $paket->harga * $reservasi->jumlah_orang;
 
-        return redirect()->route('checkout', $reservasi->id);
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = config('midtrans.is_production');
+        Config::$isSanitized = config('midtrans.is_sanitized');
+        Config::$is3ds = config('midtrans.is_3ds');
 
-        // return redirect()->route('form-reservasi', ['paket_id' => $request->paket_id]) ->with('success', 'Reservasi berhasil dikirim!');
+        $orderId = 'ORDER-' . $reservasi->id . '-' . time();
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $orderId,
+                'gross_amount' => $jumlah,
+            ],
+            'customer_details' => [
+                'first_name' => $reservasi->nama,
+                'email' => $reservasi->email,
+            ],
+        ];
+
+        $snapToken = Snap::getSnapToken($params);
+
+        Pembayaran::create([
+            'reservasi_id' => $reservasi->id,
+            'metode_pembayaran' => 'midtrans',
+            'status' => 'pending',
+            'jumlah' => $jumlah,
+            'midtrans_order_id' => $orderId,
+        ]);
+
+        return view('user.form-reservasi', [
+            'paket' => $paket,
+            'snapToken' => $snapToken,
+            'reservasi' => $reservasi,
+            'success' => 'Reservasi berhasil, lanjut ke pembayaran.'
+        ]);
     }
+
 
     public function laporan()
     {

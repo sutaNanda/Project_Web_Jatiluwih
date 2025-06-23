@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="icon" href="{{ asset('img/logo-1.ico') }}" type=".Image/x-icons">
 
-    <!-- <link rel="stylesheet" href="{{ asset('css/testimoni.css') }}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <script>
@@ -27,6 +26,31 @@
             },
         }
     </script>
+
+    <style>
+        .hero-bg {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('{{$bg}}'); /* Default untuk desktop */
+        }
+
+        .hero-h2{
+            line-height: 90px;
+        }
+
+        @media (max-width: 640px) {
+        .hero-bg {
+            background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)),
+            url('{{ asset('img/img-mobile-1.jpg') }}'); 
+            background-position: center; 
+            opacity: 10;}
+        }
+
+        .hero-h2{
+            line-height: 60px;
+        }
+    </style>
 </head>
 <body>
     <!-- navbar -->
@@ -35,13 +59,13 @@
     <!-- end navbar -->
 
     <!-- section home -->
-    <section class="w-full h-screen flex items-center justify-center" style="background-image: url('{{$bg}}'); background-size: cover; background-position: center; background-repeat: no-repeat">
-        <div class="w-full h-full text-white items-center flex flex-col justify-center gap-4">
-            <div class="text-5xl text-center font-bold leading-tight">
-                <h2 class="text-white capitalize text-5xl font" style="width: 850px; line-height: 90px">{{$deskripsi}}</h2>
+    <section class="relative w-full h-screen flex flex-col justify-between">
+        <div class="pt-60 px-4 pl-6 text-white drop-shadow-md md:text-center md:items-center flex flex-col md:justify-center gap-4 hero-bg md:w-full h-screen md:h-screen md:pt-10">
+            <div class="font-bold w-5/6">
+                <h2 class="text-white capitalize text-4xl md:text-5xl md:w-[850px] hero-h2">{{$deskripsi}}</h2>
             </div>
             <div>
-                <p class="text-white text-xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
+                <p class="text-white text-md md:text-xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
             </div>
         </div>
     </section>
