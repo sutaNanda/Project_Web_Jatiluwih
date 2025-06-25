@@ -11,8 +11,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Tambahkan pengecualian CSRF untuk rute webhook
+        $middleware->alias([
+            'verify.csrf' => \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
+        ]);
+
+        // Mengecualikan rute /midtrans/webhook dari CSRF
+        $middleware->validateCsrfTokens(except: [
+            'midtrans/webhook',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+    

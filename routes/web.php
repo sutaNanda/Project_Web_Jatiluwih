@@ -74,8 +74,8 @@ Route::prefix('admin')->group(function () {
 
 // midtrans
  Route::get('/bayar/{id}', [PembayaranController::class, 'bayar'])->name('bayar');
- Route::post('/midtrans/callback', [PembayaranController::class, 'handleCallback']);
-
+ //Route::post('/midtrans/callback', [PembayaranController::class, 'handleCallback']);
+Route::post('/midtrans/webhook', [ReservasiController::class, 'webhook']);
 
 
 
@@ -116,3 +116,8 @@ Route::get('/kontak', function () {
 Route::get('/bayar', function () {
     return view('user.bayar');
 });
+
+
+Route::get('/reservation/{id}', [ReservasiController::class, 'showReservation'])->name('reservation.show');
+
+
