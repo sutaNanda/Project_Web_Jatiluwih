@@ -19,6 +19,7 @@ class Reservasi extends Model
         'jumlah_orang',
         'tanggal_kunjungan',
         'catatan',
+        'status', // Wajib agar status bisa diubah oleh Laravel
     ];
 
     protected $dates = [
@@ -27,11 +28,15 @@ class Reservasi extends Model
         'updated_at',
     ];
 
-    /**
-     * Relasi ke model Paket
-     */
+    // Relasi ke model Paket
     public function paket()
     {
         return $this->belongsTo(Paket::class);
+    }
+
+    // Relasi ke Pembayaran (one to one)
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class, 'reservasi_id');
     }
 }
