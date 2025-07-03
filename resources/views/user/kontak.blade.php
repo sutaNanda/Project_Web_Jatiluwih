@@ -27,7 +27,7 @@
         <div class="flex flex-wrap justify-center gap-8 md:gap-24">
             @php
                 $sosials = [
-                    ['img' => 'img-tiktok.png', 'link' => 'https://www.tiktok.com/@byoki_no', 'alt' => 'TikTok'],
+                    ['img' => 'img-tiktok.png', 'link' => 'http://www.tiktok.com/@wtnbristia', 'alt' => 'TikTok'],
                     ['img' => 'img-instagram.png', 'link' => 'https://www.instagram.com/ekomplitz', 'alt' => 'Instagram'],
                     ['img' => 'img-whatsapp.png', 'link' => 'https://wa.me/6287863014568', 'alt' => 'WhatsApp'],
                     ['img' => 'img-youtube.png', 'link' => 'https://www.youtube.com/@tayaysam', 'alt' => 'YouTube'],

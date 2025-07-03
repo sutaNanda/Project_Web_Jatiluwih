@@ -15,9 +15,7 @@
             <input type="date" class="form-control" id="tanggal_selesai" name="tanggal_selesai" value="{{ request('tanggal_selesai') }}">
         </div>
         <div class="col-md-4 d-flex align-items-end">
-           <button type="submit" class="btn w-100 text-dark" style="background-color: #41b471;">Tampilkan</button>
-
-
+           <button type="submit" class="btn w-100 text-white" style="background-color: #41b471;">Tampilkan</button>
         </div>
     </form>
 
