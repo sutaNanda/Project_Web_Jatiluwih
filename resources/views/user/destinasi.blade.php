@@ -2,7 +2,7 @@
 
 @section('content2')
     <!-- section destinasi -->
-<section class="py-5 px-8 md:py-16 md:px-4">
+<section class="py-5 pl-8 md:py-16 md:px-4">
   <div class="max-w-screen-xl mx-auto ">
     <h2 class="text-2xl md:text-5xl md:text-center font-bold leading-tight capitalize mb-5 md:mb-14">
       Destinasi Wisata Populer <br> <span class="text-green-800 md:text-black">Di Desa Jatiluwih</span>
@@ -17,7 +17,7 @@
             {{ Str::limit(strip_tags($item->deskripsi), 80,'...') }}
           </p>
           <a href="{{ route('destinasi.show', $item->id) }}">
-            <button class="mt-2 text-white bg-green-700 hover:bg-green-800 font-medium rounded px-3 py-1 text-xs transition md:text-sm md:px-4 md:py-2">
+            <button class="mt-2 text-white bg-green-700 hover:bg-green-800 font-medium rounded px-3 py-1 text-xs transition md:text-sm md:px-4 md:py-2 cursor-pointer">
               Lihat Selengkapnya
             </button>
           </a>
@@ -28,6 +28,9 @@
 </section>
 
     <!-- end section destinasi -->
+
+
+
 
 
 @endsection

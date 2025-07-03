@@ -23,21 +23,20 @@
 <!-- Section: Ikon Sosial Media -->
 <section class="bg-gray-50 py-20">
     <div class="max-w-4xl mx-auto text-center">
-        <h3 class="text-4xl font-semibold text-gray-800 mb-10">Temui Kami di Media Sosial</h3>
-        <div class="flex flex-wrap justify-center gap-10">
+        <h3 class="text-4xl font-semibold text-gray-800 mb-14 md:text-5xl">Temui Kami di Media Sosial</h3>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-24">
             @php
                 $sosials = [
-                    ['img' => 'img-tiktok.png', 'link' => 'https://www.tiktok.com/@userkamu', 'alt' => 'TikTok'],
-                    ['img' => 'img-instagram.png', 'link' => 'https://www.instagram.com/userkamu', 'alt' => 'Instagram'],
-                    ['img' => 'img-gmail.png', 'link' => 'mailto:emailkamu@gmail.com', 'alt' => 'Email'],
-                    ['img' => 'img-whatsapp.png', 'link' => 'https://wa.me/6281234567890', 'alt' => 'WhatsApp'],
-                    ['img' => 'img-youtube.png', 'link' => 'https://www.youtube.com/@userkamu', 'alt' => 'YouTube'],
+                    ['img' => 'img-tiktok.png', 'link' => 'https://www.tiktok.com/@byoki_no', 'alt' => 'TikTok'],
+                    ['img' => 'img-instagram.png', 'link' => 'https://www.instagram.com/ekomplitz', 'alt' => 'Instagram'],
+                    ['img' => 'img-whatsapp.png', 'link' => 'https://wa.me/6287863014568', 'alt' => 'WhatsApp'],
+                    ['img' => 'img-youtube.png', 'link' => 'https://www.youtube.com/@tayaysam', 'alt' => 'YouTube'],
                 ];
             @endphp
 
             @foreach ($sosials as $sosial)
                 <a href="{{ $sosial['link'] }}" target="_blank" class="transition-transform transform hover:scale-110">
-                    <img src="{{ asset('img/' . $sosial['img']) }}" alt="{{ $sosial['alt'] }}" class="w-16 h-16">
+                    <img src="{{ asset('img/' . $sosial['img']) }}" alt="{{ $sosial['alt'] }}" class="w-16 h-16 md:w-24 md:h-24">
                 </a>
             @endforeach
         </div>
@@ -48,14 +47,16 @@
 <section class="bg-green-100 py-20">
     <div class="max-w-4xl mx-auto px-6">
         <h3 class="text-4xl font-bold text-center text-green-900 mb-10">Tinggalkan Pesan</h3>
-        <form class="bg-white shadow-lg rounded-xl p-8 space-y-6" action="#" method="POST">
-            <div class="grid md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Nama Lengkap" class="p-3 border border-gray-300 rounded-lg w-full" required>
-                <input type="email" placeholder="Alamat Email" class="p-3 border border-gray-300 rounded-lg w-full" required>
+       <form action="{{ route('kirim.pesan') }}" method="POST" class="bg-white shadow-lg rounded-xl p-8 space-y-6">
+            @csrf
+            <div div class="grid md:grid-cols-2 gap-6">
+                <input type="text" name="nama" placeholder="Nama Lengkap" required class="p-3 border border-gray-300 rounded-lg w-full" >
+                <input type="email" name="email" placeholder="Alamat Email" required class="p-3 border border-gray-300 rounded-lg w-full">
             </div>
-            <textarea placeholder="Pesan Anda" rows="5" class="p-3 border border-gray-300 rounded-lg w-full" required></textarea>
-            <button class="bg-green-800 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Kirim Pesan</button>
+            <textarea name="pesan" placeholder="Pesan Anda" rows="5" required class="p-3 border border-gray-300 rounded-lg w-full"></textarea>
+            <button type="submit" class="bg-green-800 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Kirim Pesan</button>
         </form>
+
     </div>
 </section>
 

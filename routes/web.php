@@ -11,6 +11,8 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PesanController;
 
 
 
@@ -19,7 +21,7 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/destinasi', [DestinasiController::class, 'user'])->name('destinasi.user');
-Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show');
+Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('destinasi.show',);
 
 Route::get('/berita', [BeritaController::class, 'user'])->name('berita.user');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
@@ -59,7 +61,7 @@ Route::prefix('admin')->group(function () {
 
 
 
-    Route::get('laporan', function () { return view('admin.laporan'); });
+    Route::get('laporan', [LaporanController::class, 'index'])->name('admin.laporan');
     Route::get('kelola-admin', function () { return view('admin.kelola-admin'); });
     Route::resource('kelola-admin', AdminController::class);
     Route::resource('data-berita', BeritaController::class)->names('data-berita');
@@ -119,5 +121,9 @@ Route::get('/bayar', function () {
 
 
 Route::get('/reservation/{id}', [ReservasiController::class, 'showReservation'])->name('reservation.show');
+
+// kirim email di kontak kami
+Route::post('/kirim-pesan', [PesanController::class, 'kirim'])->name('kirim.pesan');
+
 
 

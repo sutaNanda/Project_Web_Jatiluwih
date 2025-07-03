@@ -107,7 +107,7 @@
         <div class="pb-28 md:pb-36 px-4 flex justify-center">
             <a href="#about"
             onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' }); return false;"
-            class="bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg text-center hover:bg-green-600 transition-colors ">
+            class="bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg text-center hover:bg-green-700 transition-colors ">
                 Ayo Jelajahi Sekarang
             </a>
         </div>

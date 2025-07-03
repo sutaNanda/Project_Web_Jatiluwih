@@ -81,8 +81,8 @@ class AdminController extends Controller
 
     public function index()
     {
-    $admins = Admin::all(); // Ambil semua data admin dari tabel
-    return view('admin.kelola-admin', compact('admins')); // kirim ke view
+        $admins = Admin::all(); // Ambil semua data admin dari tabel
+        return view('admin.kelola-admin', compact('admins')); // kirim ke view
     }
 
     // kirim email 

@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reservasi;
+use App\Models\Pembayaran;
+use App\Models\Destinasi;
+use App\Charts\ReservasiChart; // ← Tambahkan ini
 
 class DashboardController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, ReservasiChart $reservasiChart)
     {
         // Cek session login
         if (!$request->session()->get('is_logged_in')) {
@@ -15,11 +19,14 @@ class DashboardController extends Controller
 
         // Data dashboard
         $data = [
-            'total_wisata' => 4,
-            'total_booking' => 34,
-            'booking_belum_dikonfirmasi' => 8,
+            'total_wisata' => Destinasi::count(),
+            'total_booking' => Reservasi::count(),
         ];
 
-        return view('admin.dashboard', compact('data'));
+        // Buat chart dari class ReservasiChart
+        $chart = $reservasiChart->build();
+
+        // Kirim chart dan data ke view
+        return view('admin.dashboard', compact('data', 'chart'));
     }
 }

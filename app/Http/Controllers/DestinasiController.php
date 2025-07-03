@@ -28,7 +28,8 @@ class DestinasiController extends Controller
     public function show($id)
     {
         $destinasi = Destinasi::findOrFail($id);
-        return view('user.detail-destinasi', compact('destinasi'));
+        $daftarDestinasi = Destinasi::all();
+        return view('user.detail-destinasi', compact('destinasi', 'daftarDestinasi'));
     }
 
     public function create()

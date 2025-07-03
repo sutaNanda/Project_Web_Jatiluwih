@@ -25,22 +25,16 @@
 
     <x-navbar></x-navbar>
 
-   <section class="w-full h-screen relative flex items-center justify-center flex-col gap-10"
-    style="background-image: url('{{ asset('img/profil2.jpg') }}'); background-size: cover; background-position: center;">
-    
-        <!-- Layer background blur -->
+    <section class="w-full h-[75vh] md:h-screen relative flex items-center justify-center flex-col gap-10" style="background-image: url('{{ asset('img/profil2.jpg') }}'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-opacity-30 backdrop-blur-[2px]"></div>
-
-        <!-- Konten tulisan di atas -->
         <div class="relative text-center w-full px-4">
-            <h1 class="text-5xl font-bold uppercase text-white">{{ $paket->nama_paket }}</h1>
-            <p class="text-white mt-8 text-xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
+            <h1 class="text-3xl md:text-5xl font-bold uppercase text-white">{{ $paket->nama_paket }}</h1>
+            <p class="text-white mt-4 md:mt-8 text-lg md:text-xl">"We Embrace #TheEntranceofAncientJatiLuwih"</p>
         </div>
+    </section>   
 
-    </section>    
-
-    <section class="mt-20 w-full flex justify-evenly">
-        <div class="w-1/2 px-4 flex flex-col gap-4">
+    <section class="mt-20 w-full md:flex md:justify-evenly">
+        <div class="md:w-1/2 w-full px-4 flex flex-col gap-4">
             <div class="border-6 border-green-800 flex items-center justify-center overflow-hidden">
                 <img src="{{ asset('gambar/' . $paket->gambar) }}" alt="Gambar Paket" class="">            
             </div>
@@ -151,8 +145,8 @@
 
         </div>
 
-        <div class="w-5/12 flex items-center gap-4 flex-col">
-            <div class="w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm ">
+        <div class="md:w-5/12 px-4 w-full mt-10 md:flex md:items-center md:gap-4 md:flex-col">
+            <div class="md:w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm ">
                 <h2 class="text-4xl font-bold mb-8 text-center">Formulir Reservasi</h2>
 
                 <form action="{{ route('reservasi.simpan') }}" method="POST" class="space-y-3">
@@ -208,15 +202,19 @@
 
             {{-- checkout --}}
             @if(isset($snapToken) && isset($reservasi))
-                <div class="w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm ">
+                <div class="md:w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm mt-10 ">
                     <div class="mb-6 text-center">
                         <h2 class="text-2xl font-bold text-gray-800">💳 Checkout Pembayaran</h2>
-                        <p class="text-gray-500 text-2xl mt-2">Hai, <span class="font-semibold text-green-600">{{ $reservasi->nama }}</span></p>
+                        <p class="text-gray-500 text-2xl mt-2">Hai, <span class="font-semibold text-green-600">
+                            {{ $reservasi->nama }}
+                        </span></p>
                     </div>
 
                     <div class="border-t border-gray-200 pt-4 mb-4">
                         <p class="text-gray-600">Total yang harus dibayar:</p>
-                        <p class="text-3xl font-bold text-green-600 mt-1">Rp {{ number_format($paket->harga * $reservasi->jumlah_orang, 0, ',', '.') }},00</p>
+                        <p class="text-3xl font-bold text-green-600 mt-1">Rp 
+                            {{ number_format($paket->harga * $reservasi->jumlah_orang, 0, ',', '.') }}
+                            ,00</p>
                     </div>
 
                     <button id="pay-button" class="w-full bg-green-600 hover:bg-green-700 transition-colors text-white py-3 rounded-lg font-semibold shadow-md hover:shadow-lg">
