@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    {{-- ApexCharts --}}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <style>
         nav.navbar {
             position: fixed;
@@ -45,16 +48,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0e6251;">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('admin/dashboard') }}">
                 <img src="/img/logo.png" alt="Logo" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
                 Admin Dashboard
             </a>
-            
-            <div class="d-flex ms-3">
-                <button class="btn btn-outline-light me-2 rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">📩</button>
-                <button class="btn btn-outline-light me-2 rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">🔔</button>
-                <button class="btn btn-light rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">👤</button>
-            </div>
         </div>
     </nav>
 

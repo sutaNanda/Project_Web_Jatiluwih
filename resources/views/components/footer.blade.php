@@ -83,7 +83,7 @@
         <hr class="my-3 md:my-6 border-gray-200 h-[2px] bg-gray-200 sm:mx-auto lg:my-8" />
         
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-white sm:text-center">© 2025 <a href="" class="hover:underline">Desa Jatiluwih</a>. All Rights Reserved.
+            <span class="text-sm text-white sm:text-center">© 2025 <a href="/" class="hover:underline">Desa Jatiluwih</a>. All Rights Reserved.
             </span>
         </div>
     </footer>

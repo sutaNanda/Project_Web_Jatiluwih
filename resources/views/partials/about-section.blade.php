@@ -10,7 +10,7 @@
 
             <!-- Tombol -->
             <div class="mt-4 mx-auto md:mx-0">
-                <a href="/profil" class="inline-block text-center border-2 border-green-800 py-2 px-6 bg-green-800 rounded-md md:rounded-md text-white font-medium hover:bg-green-900 transition">
+                <a href="/profil" class="inline-block text-center border-2 border-green-800 py-2 px-6 bg-green-800 rounded-md md:rounded-md text-white font-medium hover:bg-green-900 transition hover:underline">
                     Lihat Lebih Lanjut
                 </a>
             </div>

@@ -33,6 +33,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-image: url('{{$bg}}'); /* Default untuk desktop */
+
         }
 
         .hero-h2{
@@ -59,9 +60,9 @@
     <!-- end navbar -->
 
     <!-- section home -->
-    <section class="relative w-full h-screen flex flex-col justify-between">
+    <section class="relative w-full  md:h-screen flex flex-col justify-between">
         <div class="pt-60 px-4 pl-6 text-white drop-shadow-md md:text-center md:items-center flex flex-col md:justify-center gap-4 hero-bg md:w-full h-screen md:h-screen md:pt-10">
-            <div class="font-bold w-5/6">
+            <div class="font-bold w-5/6 md:flex md:justify-center">
                 <h2 class="text-white capitalize text-4xl md:text-5xl md:w-[850px] hero-h2">{{$deskripsi}}</h2>
             </div>
             <div>
@@ -86,22 +87,24 @@
         window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-green-800', 'backdrop-blur-xs');
-                navbar.classList.add('bg-opacity-50'); 
-                navbar.classList.add('border-b-1', 'border-gray-600');
-                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('md:bg-green-800', 'md:backdrop-blur-xs');
+                navbar.classList.add('md:bg-opacity-50'); 
+                navbar.classList.add('md:border-b-1', 'md:border-gray-600');
+                navbar.classList.remove('md:bg-transparent');
                 
             } else if (window.scrollY === 0) {
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('backdrop-blur-xs');
-                navbar.classList.remove('bg-opacity-30');
-                navbar.classList.remove('border-1');
+                // navbar.classList.add('bg-transparent');
+                navbar.classList.remove('md:backdrop-blur-xs');
+                navbar.classList.remove('md:bg-opacity-30');
+                navbar.classList.remove('md:border-1');
             }else {
                 navbar.classList.add('border-0');
-                navbar.classList.add('bg-transparent');
+                navbar.classList.add('md:bg-transparent');
+                navbar.classList.add('sm:bg-green-800');
                 navbar.classList.remove('backdrop-blur-xs', 'bg-opacity-50', 'border-b-1');
             }
         });
+        
     </script>
 
 </body>

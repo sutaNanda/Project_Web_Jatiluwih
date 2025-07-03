@@ -8,7 +8,7 @@
     <h2>Hai {{ $reservasi->nama }},</h2>
     <p>Terima kasih telah melakukan reservasi pada paket:</p>
     <ul>
-        <li><strong>{{ $reservasi->paket->nama }}</strong></li>
+        <li><strong>{{ $reservasi->paket->nama_paket }}</strong></li>
         <li>Tanggal Kunjungan: {{ $reservasi->tanggal_kunjungan }}</li>
         <li>Jumlah Orang: {{ $reservasi->jumlah_orang }}</li>
     </ul>
