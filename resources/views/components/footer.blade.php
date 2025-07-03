@@ -25,7 +25,6 @@
 
                             <li class="mb-0 md:mb-2"><a href="/paket" class="hover:underline">Pemesanan</a></li>
 
-                            <li class="mb-0 md:mb-2"><a href="" class="hover:underline">Bahasa</a></li>
                         </ul>
                     </div>
 
@@ -35,27 +34,30 @@
                             <li class="mb-1 md:mb-4 flex gap-2 items-center"> 
                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19"><path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
                                 </svg>
-                                <a href="https://www.facebook.com/" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Facebook</a>
+                                <a href="https://www.facebook.com/share/15ovMCJhQw/" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Facebook</a>
                             </li>
 
                             <li class="mb-1.5 md:mb-4 flex gap-2 items-center">
                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
                                         <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/> 
                                     </svg> 
-                                    <a href="https://x.com/" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Twitter</a>
+                                    <a href="https://x.com/FXELVNZY?t=GRSauBXrBj6A-qIRfoJjvg&s=09" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Twitter</a>
                             </li>
                         
                             <li class="mb-1.5 md:mb-4 flex gap-2 items-center">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#ffffff"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#D1D5DB"></path> </g></svg>
-                                <a href="https://www.instagram.com/" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Instagram</a>
+                                <a href="https://www.instagram.com/ekomplitz" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Instagram</a>
                             </li>
 
                             <li class="mb-1.5 md:mb-4 flex gap-2 items-center">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
-                                <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/> 
-                                </svg> 
-                                <a href="https://x.com/" target="_blank"  rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">Twitter</a>
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
+                                    <path d="M448,209.9v-59.2c-19.8,0-39.6-2.9-58.6-8.5c-10.9-3.2-21.4-7.4-31.5-12.6v200.3c0,80.8-65.6,146.4-146.4,146.4
+                                        S65.1,410.7,65.1,329.9c0-79.3,64.2-144,143.3-146.3v60.8c-45.5,2.3-82.1,39.7-82.1,85.4c0,47.3,38.4,85.7,85.7,85.7
+                                        c47.3,0,85.7-38.4,85.7-85.7V0h58.4c3.1,24.7,15.3,47.2,34,63.3c18.9,16.3,42.9,25.7,67.9,26.3v58.3h0.2V209.9z"/>
+                                </svg>
+                                <a href="http://www.tiktok.com/@wtnbristia" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white flex items-center">TikTok</a>
                             </li>
+
                         </ul>
                     </div>
 
@@ -71,7 +73,7 @@
                             <li class="flex gap-2 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"    class="size-6 "> <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                 </svg> 
-                                <p class="flex items-center">yepoganteng338@gmail.com</p>
+                                <p class="flex items-center">jatiluwihtbn@gmail.com</p>
                             </li>
                         </ul>
                     </div>
