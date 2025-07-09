@@ -20,7 +20,7 @@ class BeritaController extends Controller
         ]);
     }
 
-        // Menampilkan halaman detail berita
+    // Menampilkan halaman detail berita
     public function show($id)
     {
         $berita = Berita::findOrFail($id);

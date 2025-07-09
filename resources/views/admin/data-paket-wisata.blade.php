@@ -36,7 +36,7 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="paketTableBody">
+                            <tbody id="tableBody">
                                 @forelse($paket as $index => $item)
                                     <tr>
                                         <td class="text-center">{{ $index + 1 }}</td>
@@ -79,45 +79,18 @@
     </div>
 </div>
 
-@endsection
-
-@section('scripts')
-<script>
-    document.getElementById('searchInput').addEventListener('input', function(event) {
-        const searchQuery = event.target.value.toLowerCase();
-        const rows = document.querySelectorAll('#paketTableBody tr');
-        rows.forEach(row => {
-            const namaPaket = row.cells[1].textContent.toLowerCase();
-            const namaDestinasi = row.cells[2].textContent.toLowerCase();
-            const fasilitas = row.cells[5].textContent.toLowerCase();
-            if (
-                namaPaket.includes(searchQuery) ||
-                namaDestinasi.includes(searchQuery) ||
-                fasilitas.includes(searchQuery)
-            ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
-</script>
-
+<!-- Search Script -->
 <script>
     document.getElementById('searchInput').addEventListener('keyup', function () {
-        const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#paketTableBody tr');
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#tableBody tr");
 
         rows.forEach(row => {
-            const namaPaket = row.cells[1].textContent.toLowerCase();
-            const namaDestinasi = row.cells[2].textContent.toLowerCase();
-            const fasilitas = row.cells[5].textContent.toLowerCase();
-
-            const isMatch = namaPaket.includes(filter) || namaDestinasi.includes(filter) || fasilitas.includes(filter);
-
-            row.style.display = isMatch ? '' : 'none';
+            let text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
         });
     });
 </script>
 
 @endsection
+

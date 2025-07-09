@@ -14,9 +14,9 @@
                 </a>
             </div>
 
-            <!-- Input Pencarian -->
-            <div class="input-group mb-3 shadow-sm">
-                <input type="text" class="form-control" id="searchInput" placeholder="Cari berdasarkan nama, deskripsi, atau status...">
+            <!-- Search -->
+            <div class="input-group mb-4 shadow-sm">
+                <input type="text" class="form-control" id="searchInput" placeholder="Cari wisata berdasarkan judul atau deskripsi...">
             </div>
 
                         <!-- Card Tabel -->
@@ -34,7 +34,7 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="wisataTableBody">
+                            <tbody id="tableBody">
                                 @forelse($destinasi as $index => $item)
                                 <tr>
                                 <tr>
@@ -76,23 +76,19 @@
     </div>
 
 </div>
-@endsection
 
-@section('scripts')
+<!-- Search Script -->
 <script>
-    // Pencarian Real-Time
     document.getElementById('searchInput').addEventListener('keyup', function () {
-        const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#wisataTableBody tr');
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#tableBody tr");
 
         rows.forEach(row => {
-            const nama = row.cells[1].textContent.toLowerCase();
-            const deskripsi = row.cells[2].textContent.toLowerCase();
-            const status = row.cells[4].textContent.toLowerCase();
-
-            const isMatch = nama.includes(filter) || deskripsi.includes(filter) || status.includes(filter);
-            row.style.display = isMatch ? '' : 'none';
+            let text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
         });
     });
 </script>
 @endsection
+
+

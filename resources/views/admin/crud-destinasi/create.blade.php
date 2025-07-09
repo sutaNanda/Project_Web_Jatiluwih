@@ -14,12 +14,12 @@
 
                         <div class="mb-3">
                             <label for="nama_destinasi" class="form-label">Nama Destinasi</label>
-                            <input type="text" id="nama_destinasi" name="nama_destinasi" class="form-control" required>
+                            <input type="text" id="nama_destinasi" name="nama_destinasi" class="form-control" required placeholder="Masukkan nama destinasi">
                         </div>
 
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea id="deskripsi" name="deskripsi" class="form-control" rows="4" required></textarea>
+                            <textarea id="deskripsi" name="deskripsi" class="form-control" rows="4" required placeholder="Masukkan deskripsi"></textarea>
                         </div>
 
                         <div class="mb-3">

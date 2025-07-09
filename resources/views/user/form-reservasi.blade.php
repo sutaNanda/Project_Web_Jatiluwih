@@ -76,7 +76,7 @@
             </div>
 
             {{-- testimino --}}
-            <div class="bg-white border-1 border-green-800 rounded-lg shadow-md p-6 ">
+            <div class="bg-white border-1 border-green-800 rounded-lg shadow-md p-6" id="testimoni">
                 <h2 class="text-2xl font-semibold text-green-800 mb-5 text-center">Beri Testimoni</h2>
 
                 @if(session('testimoni_success'))
@@ -137,7 +137,7 @@
 
                     <button type="submit"
                         class="w-full bg-green-600 text-white font-semibold py-2 rounded-md
-                            hover:bg-green-700 transition-colors duration-200">
+                            hover:bg-green-700 transition-colors duration-200" >
                         Kirim Testimoni
                     </button>
                 </form>
@@ -202,7 +202,15 @@
 
             {{-- checkout --}}
             @if(isset($snapToken) && isset($reservasi))
-                <div class="md:w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm mt-10 ">
+            <script>
+                window.onload = function () {
+                    const checkout = document.getElementById('checkout');
+                    if (checkout) {
+                        checkout.scrollIntoView({ behavior: 'smooth' });
+                    }
+                };
+            </script>
+                <div class="md:w-10/12 bg-white p-6 rounded shadow-green-800 shadow-sm mt-10" id="checkout">
                     <div class="mb-6 text-center">
                         <h2 class="text-2xl font-bold text-gray-800">💳 Checkout Pembayaran</h2>
                         <p class="text-gray-500 text-2xl mt-2">Hai, <span class="font-semibold text-green-600">

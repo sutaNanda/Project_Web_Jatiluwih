@@ -53,7 +53,9 @@ class TestimoniController extends Controller
         $paket->populer = ($averageRating >= 4) ? 1 : 0;
         $paket->save();
 
-        return back()->with('testimoni_success', 'Testimoni berhasil dikirim!');
+        return redirect(url()->previous() . '#testimoni')
+            ->with('testimoni_success', 'Testimoni berhasil dikirim!');
+
     }
 
 }

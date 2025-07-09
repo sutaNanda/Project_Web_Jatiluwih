@@ -20,7 +20,7 @@
 
         <div class="mb-3">
             <label for="nama_paket" class="form-label">Nama Paket</label>
-            <input type="text" name="nama_paket" class="form-control" id="nama_paket" value="{{ old('nama_paket') }}" required>
+            <input type="text" name="nama_paket" placeholder="Contoh: Paket A" class="form-control" id="nama_paket" value="{{ old('nama_paket') }}" required>
         </div>
 
         <div class="mb-3">
@@ -40,7 +40,7 @@
 
         <div class="mb-3">
             <label for="harga" class="form-label">Harga</label>
-            <input type="number" name="harga" class="form-control" id="harga" value="{{ old('harga') }}" required>
+            <input type="number" name="harga" placeholder="Contoh: 100000" class="form-control" id="harga" value="{{ old('harga') }}" required>
         </div>
 
         <div class="mb-3">
@@ -50,7 +50,7 @@
 
         <div class="mb-3">
             <label for="fasilitas" class="form-label">Fasilitas</label>
-            <textarea name="fasilitas" class="form-control" id="fasilitas" rows="4" required>{{ old('fasilitas') }}</textarea>
+            <textarea name="fasilitas" class="form-control" placeholder="Contoh: - Fasilitas A, Fasilitas B" id="fasilitas" rows="4" required>{{ old('fasilitas') }}</textarea>
         </div>
 
         <div class="form-check mb-3">
