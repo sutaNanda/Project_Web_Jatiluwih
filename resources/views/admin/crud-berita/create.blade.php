@@ -9,12 +9,12 @@
 
         <div class="mb-3">
             <label>Judul Berita</label>
-            <input type="text" name="judul" class="form-control" required>
+            <input type="text" name="judul" class="form-control" required placeholder="Judul berita">
         </div>
 
         <div class="mb-3">
             <label>Konten</label>
-            <textarea name="konten" rows="5" class="form-control" required></textarea>
+            <textarea name="konten" rows="5" class="form-control" required placeholder="deskripsi berita"></textarea>
         </div>
 
         <div class="mb-3">
